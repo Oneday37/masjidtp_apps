@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "347152255221",
+    "project_id": "pichoy",
+    "storage_bucket": "pichoy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347152255221:android:63b6898b94690288f91dbc",
+        "android_client_info": {
+          "package_name": "com.example.penulisan_ilmiah_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3JEifYKCtX0n8gvAtu7dObA2qfvg9iSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
