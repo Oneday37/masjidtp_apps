@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:penulisan_ilmiah_application/pages/home_page.dart';
-import 'package:penulisan_ilmiah_application/pages/login_page.dart';
+import 'package:penulisan_ilmiah_application/Pages/home_page.dart';
+import 'package:penulisan_ilmiah_application/Pages/login_page.dart';
 
 class LoginVerif extends StatelessWidget {
   const LoginVerif({super.key});
@@ -25,7 +24,7 @@ class LoginVerif extends StatelessWidget {
             "PILIH AKUN",
             style: GoogleFonts.poppins(fontSize: 20),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Hero(
@@ -37,7 +36,7 @@ class LoginVerif extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.green[700],
                       borderRadius: BorderRadius.circular(15)),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       "ADMIN",
                       style:
@@ -45,11 +44,11 @@ class LoginVerif extends StatelessWidget {
                     ),
                   )),
               onTap: () {
-                Get.to(LoginPage());
+                Get.to(const LoginPage());
               },
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           GestureDetector(
@@ -59,14 +58,14 @@ class LoginVerif extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.green[700],
                     borderRadius: BorderRadius.circular(15)),
-                child: Center(
+                child: const Center(
                   child: Text(
                     "JAMA'AH",
                     style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                   ),
                 )),
             onTap: () {
-              Get.to(HomePage());
+              Get.to(const HomePage());
             },
           ),
         ],

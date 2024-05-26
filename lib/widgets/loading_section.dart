@@ -18,12 +18,11 @@ class LoadingPage extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          Container(
-              child: Text(
+          Text(
             "MASJID TAMAN PUSPA",
             style: GoogleFonts.oswald(fontSize: 28),
             textAlign: TextAlign.center,
-          ))
+          )
         ],
       ),
     );

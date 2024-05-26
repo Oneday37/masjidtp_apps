@@ -78,8 +78,8 @@ flutter:
   assets:
     - assets/masjid.jpg
     - assets/tp1.jpg
-    - assets/tp2.jpg
-    - assets/tp3.jpg
+    - assets/rupiah.png
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

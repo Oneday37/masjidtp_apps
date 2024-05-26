@@ -44,9 +44,9 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Hero(
+                const Hero(
                   tag: "adminLoginAnimation",
-                  child: const CircleAvatar(
+                  child: CircleAvatar(
                     radius: 55,
                     child: Icon(
                       Icons.person,
@@ -66,7 +66,6 @@ class _LoginPageState extends State<LoginPage> {
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                         labelText: "E-mail",
-                        hintText: "example@gmail.com",
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15))),
                     autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -92,11 +91,14 @@ class _LoginPageState extends State<LoginPage> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15))),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  // validator: (value) {
-                  //   if (value != ) {}
-                  // },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Harap mengisikan password dengan benar";
+                    }
+                    return null;
+                  },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 GestureDetector(
@@ -106,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: BoxDecoration(
                           color: Colors.green[700],
                           borderRadius: BorderRadius.circular(15)),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "LOGIN",
                           style: TextStyle(

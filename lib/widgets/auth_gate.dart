@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:penulisan_ilmiah_application/pages/login_page.dart';
-import 'package:penulisan_ilmiah_application/pages/home_page.dart';
+import 'package:penulisan_ilmiah_application/Pages/login_page.dart';
+import 'package:penulisan_ilmiah_application/Pages/home_page.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
@@ -12,9 +12,9 @@ class AuthGate extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return HomePage();
+            return const HomePage();
           }
-          return LoginPage();
+          return const LoginPage();
         });
   }
 }

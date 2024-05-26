@@ -43,7 +43,7 @@ class _JadwalSholatState extends State<JadwalSholat> {
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Stack(
               children: [
-                Container(
+                SizedBox(
                   height: 200,
                   width: MediaQuery.of(context).size.width,
                   child: Image.asset(
@@ -118,7 +118,7 @@ class _JadwalSholatState extends State<JadwalSholat> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 5),
             child: Column(
               children: [
                 Row(
@@ -126,11 +126,14 @@ class _JadwalSholatState extends State<JadwalSholat> {
                   children: [
                     Text(
                       "Shubuh",
-                      style: GoogleFonts.nunitoSans(fontSize: 20),
+                      style: GoogleFonts.roboto(fontSize: 20),
                     ),
                     Text(DateFormat.Hm().format(prayerTimes.fajr),
-                        style: GoogleFonts.nunitoSans(fontSize: 20)),
+                        style: GoogleFonts.roboto(fontSize: 20)),
                   ],
+                ),
+                const Divider(
+                  color: Colors.black,
                 ),
                 const SizedBox(height: 7),
                 Row(
@@ -138,11 +141,14 @@ class _JadwalSholatState extends State<JadwalSholat> {
                   children: [
                     Text(
                       "Dhuhr",
-                      style: GoogleFonts.nunitoSans(fontSize: 20),
+                      style: GoogleFonts.roboto(fontSize: 20),
                     ),
                     Text(DateFormat.Hm().format(prayerTimes.dhuhr),
-                        style: GoogleFonts.nunitoSans(fontSize: 20)),
+                        style: GoogleFonts.roboto(fontSize: 20)),
                   ],
+                ),
+                const Divider(
+                  color: Colors.black,
                 ),
                 const SizedBox(height: 7),
                 Row(
@@ -150,11 +156,14 @@ class _JadwalSholatState extends State<JadwalSholat> {
                   children: [
                     Text(
                       "Asr",
-                      style: GoogleFonts.nunitoSans(fontSize: 20),
+                      style: GoogleFonts.roboto(fontSize: 20),
                     ),
                     Text(DateFormat.Hm().format(prayerTimes.asr),
-                        style: GoogleFonts.nunitoSans(fontSize: 20)),
+                        style: GoogleFonts.roboto(fontSize: 20)),
                   ],
+                ),
+                const Divider(
+                  color: Colors.black,
                 ),
                 const SizedBox(height: 7),
                 Row(
@@ -162,11 +171,14 @@ class _JadwalSholatState extends State<JadwalSholat> {
                   children: [
                     Text(
                       "Maghrib",
-                      style: GoogleFonts.nunitoSans(fontSize: 20),
+                      style: GoogleFonts.roboto(fontSize: 20),
                     ),
                     Text(DateFormat.Hm().format(prayerTimes.maghrib),
-                        style: GoogleFonts.nunitoSans(fontSize: 20)),
+                        style: GoogleFonts.roboto(fontSize: 20)),
                   ],
+                ),
+                const Divider(
+                  color: Colors.black,
                 ),
                 const SizedBox(height: 7),
                 Row(
@@ -174,10 +186,10 @@ class _JadwalSholatState extends State<JadwalSholat> {
                   children: [
                     Text(
                       "Isya",
-                      style: GoogleFonts.nunitoSans(fontSize: 20),
+                      style: GoogleFonts.roboto(fontSize: 20),
                     ),
                     Text(DateFormat.Hm().format(prayerTimes.isha),
-                        style: GoogleFonts.nunitoSans(fontSize: 20)),
+                        style: GoogleFonts.roboto(fontSize: 20)),
                   ],
                 ),
               ],

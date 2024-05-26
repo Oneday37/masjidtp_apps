@@ -4,7 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:intl/intl.dart';
+import 'package:penulisan_ilmiah_application/widgets/events.dart';
 import 'package:penulisan_ilmiah_application/widgets/finance.dart';
+import 'package:penulisan_ilmiah_application/widgets/jadwal_jumat.dart';
+import 'package:penulisan_ilmiah_application/widgets/quotes_of_the_day.dart';
 import 'jadwal_sholat_page.dart';
 import 'profile_page.dart';
 import 'quran_page.dart';
@@ -34,8 +37,19 @@ class _HomePageState extends State<HomePage> {
             style:
                 GoogleFonts.oswald(fontSize: 16, fontWeight: FontWeight.normal),
           ),
-          const SizedBox(height: 15),
-          Finance(),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15),
+            child: Finance(),
+          ),
+          const Quotes(),
+          const SizedBox(
+            height: 10,
+          ),
+          const JadwalJumat(),
+          const SizedBox(
+            height: 10,
+          ),
+          const EventSection()
           // StreamBuilder(
           //     stream:
           //         collectionReference.snapshots(includeMetadataChanges: true),

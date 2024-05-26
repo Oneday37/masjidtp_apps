@@ -19,7 +19,7 @@ class _FinanceState extends State<Finance> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 120,
+        height: 130,
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: [
@@ -34,13 +34,13 @@ class _FinanceState extends State<Finance> {
                 Padding(
                   padding: const EdgeInsets.only(top: 10, left: 10),
                   child: Text("Sisa Kas Masjid",
-                      style: GoogleFonts.poppins(fontSize: 17)),
+                      style: GoogleFonts.poppins(fontSize: 18)),
                 ),
                 Positioned(
                   bottom: 10,
                   right: 10,
                   child: Text("Rp. ${widget.sisaKas}",
-                      style: GoogleFonts.poppins(fontSize: 20)),
+                      style: GoogleFonts.poppins(fontSize: 18)),
                 ),
               ],
             ),
@@ -53,16 +53,23 @@ class _FinanceState extends State<Finance> {
                       color: Colors.green[400],
                       borderRadius: BorderRadius.circular(15)),
                 ),
+                Opacity(
+                  opacity: 0.3,
+                  child: Image.asset(
+                    "assets/rupiah.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, left: 10),
                   child: Text("Pemasukan Kas Masjid",
-                      style: GoogleFonts.poppins(fontSize: 17)),
+                      style: GoogleFonts.poppins(fontSize: 18)),
                 ),
                 Positioned(
                   bottom: 10,
                   right: 10,
                   child: Text("Rp. ${widget.pemasukan}",
-                      style: GoogleFonts.poppins(fontSize: 20)),
+                      style: GoogleFonts.poppins(fontSize: 18)),
                 ),
               ],
             ),
@@ -75,16 +82,23 @@ class _FinanceState extends State<Finance> {
                       color: Colors.red,
                       borderRadius: BorderRadius.circular(15)),
                 ),
+                Opacity(
+                  opacity: 0.3,
+                  child: Image.asset(
+                    "assets/rupiah.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, left: 10),
                   child: Text("Pengeluaran Kas Masjid",
-                      style: GoogleFonts.poppins(fontSize: 17)),
+                      style: GoogleFonts.poppins(fontSize: 18)),
                 ),
                 Positioned(
                   bottom: 10,
                   right: 10,
                   child: Text("Rp. ${widget.pengeluaran}",
-                      style: GoogleFonts.poppins(fontSize: 20)),
+                      style: GoogleFonts.poppins(fontSize: 18)),
                 ),
               ],
             ),
