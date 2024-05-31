@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ShowDataJadwal extends StatefulWidget {
+  String tanggalJumat;
   String khatib;
+  String imam;
   String muadzin;
-  String tanggaljumat;
-  Function() editjadwal;
 
-  ShowDataJadwal({
-    required this.khatib,
-    required this.muadzin,
-    required this.tanggaljumat,
-    required this.editjadwal,
-  });
+  ShowDataJadwal(
+      {required this.tanggalJumat,
+      required this.khatib,
+      required this.muadzin,
+      required this.imam});
 
   @override
   State<ShowDataJadwal> createState() => _ShowDataState();
@@ -26,32 +25,23 @@ class _ShowDataState extends State<ShowDataJadwal> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Jum'at, ${widget.tanggaljumat}",
-                  style: GoogleFonts.oswald(fontSize: 18)),
-              IconButton(
-                  icon: const Icon(Icons.edit),
-                  onPressed: () {
-                    widget.editjadwal();
-                  })
-            ],
-          ),
+          Text("Jum'at, ${widget.tanggalJumat}",
+              style: GoogleFonts.oswald(
+                  fontSize: 18, fontWeight: FontWeight.bold)),
           const Divider(
             color: Colors.black,
           ),
           Row(
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width / 2.7,
-                child: Text("KHATIB DAN IMAM",
+                width: MediaQuery.of(context).size.width / 3.2,
+                child: Text("KHATIB JUM'AT",
                     style: GoogleFonts.roboto(
-                        fontSize: 15, fontWeight: FontWeight.bold)),
+                        fontSize: 15, fontWeight: FontWeight.w600)),
               ),
               Text(":",
                   style: GoogleFonts.roboto(
-                      fontSize: 15, fontWeight: FontWeight.bold)),
+                      fontSize: 15, fontWeight: FontWeight.w600)),
               const SizedBox(
                 width: 10,
               ),
@@ -59,7 +49,7 @@ class _ShowDataState extends State<ShowDataJadwal> {
                 child: Text(
                   widget.khatib,
                   style: GoogleFonts.roboto(
-                      fontSize: 15, fontWeight: FontWeight.bold),
+                      fontSize: 15, fontWeight: FontWeight.w600),
                 ),
               )
             ],
@@ -70,21 +60,47 @@ class _ShowDataState extends State<ShowDataJadwal> {
           Row(
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width / 2.7,
-                child: Text("MUADZIN",
+                width: MediaQuery.of(context).size.width / 3.2,
+                child: Text("IMAM JUM'AT",
                     style: GoogleFonts.roboto(
-                        fontSize: 15, fontWeight: FontWeight.bold)),
+                        fontSize: 15, fontWeight: FontWeight.w600)),
               ),
               Text(":",
                   style: GoogleFonts.roboto(
-                      fontSize: 15, fontWeight: FontWeight.bold)),
+                      fontSize: 15, fontWeight: FontWeight.w600)),
+              const SizedBox(
+                width: 10,
+              ),
+              Expanded(
+                child: Text(
+                  widget.imam,
+                  style: GoogleFonts.roboto(
+                      fontSize: 15, fontWeight: FontWeight.w600),
+                ),
+              )
+            ],
+          ),
+          const SizedBox(
+            height: 7,
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 3.2,
+                child: Text("MUADZIN",
+                    style: GoogleFonts.roboto(
+                        fontSize: 15, fontWeight: FontWeight.w600)),
+              ),
+              Text(":",
+                  style: GoogleFonts.roboto(
+                      fontSize: 15, fontWeight: FontWeight.w600)),
               const SizedBox(
                 width: 10,
               ),
               Expanded(
                 child: Text(widget.muadzin,
                     style: GoogleFonts.roboto(
-                        fontSize: 15, fontWeight: FontWeight.bold)),
+                        fontSize: 15, fontWeight: FontWeight.w600)),
               )
             ],
           ),

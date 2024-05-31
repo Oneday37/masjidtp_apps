@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hijri/hijri_calendar.dart';
@@ -43,11 +44,11 @@ class _HomePageState extends State<HomePage> {
           ),
           const Quotes(),
           const SizedBox(
-            height: 10,
+            height: 15,
           ),
           const JadwalJumat(),
           const SizedBox(
-            height: 10,
+            height: 15,
           ),
           const EventSection()
           // StreamBuilder(
@@ -96,7 +97,7 @@ class _HomePageState extends State<HomePage> {
             child: GNav(
               color: Colors.black,
               activeColor: Colors.black,
-              tabBackgroundColor: Colors.green,
+              tabBackgroundColor: const Color.fromRGBO(67, 160, 71, 1),
               tabBorderRadius: 15,
               iconSize: 20,
               gap: 8,

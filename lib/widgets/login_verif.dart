@@ -34,7 +34,7 @@ class LoginVerif extends StatelessWidget {
                   height: 50,
                   width: MediaQuery.of(context).size.width / 2.5,
                   decoration: BoxDecoration(
-                      color: Colors.green[700],
+                      color: Colors.green[600],
                       borderRadius: BorderRadius.circular(15)),
                   child: const Center(
                     child: Text(
@@ -56,7 +56,7 @@ class LoginVerif extends StatelessWidget {
                 height: 50,
                 width: MediaQuery.of(context).size.width / 2.5,
                 decoration: BoxDecoration(
-                    color: Colors.green[700],
+                    color: Colors.green[600],
                     borderRadius: BorderRadius.circular(15)),
                 child: const Center(
                   child: Text(

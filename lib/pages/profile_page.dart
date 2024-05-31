@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:penulisan_ilmiah_application/Pages/edit_keuangan_page.dart';
 import 'edit_jadwal_page.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -66,7 +67,9 @@ class ProfilePage extends StatelessWidget {
                 size: 30,
               ),
               dense: true,
-              onTap: () {},
+              onTap: () {
+                Get.to(EditKeuanganPage());
+              },
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
@@ -89,7 +92,7 @@ class ProfilePage extends StatelessWidget {
               ),
               dense: true,
               onTap: () {
-                Get.to(EditJadwalPage());
+                Get.to(const EditJadwalPage());
               },
             ),
           ],
