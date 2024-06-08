@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:penulisan_ilmiah_application/Services%20Firebase/auth_service.dart';
+
+import '../services/firebase/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

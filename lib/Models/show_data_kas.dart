@@ -113,6 +113,5 @@ class _ShowDataKasState extends State<ShowDataKas> {
             ),
           ],
         ));
-    ;
   }
 }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:penulisan_ilmiah_application/Services%20Firebase/firestore.dart';
-
-import '../Models/show_data_kas.dart';
+import '../models/show_data_kas.dart';
+import '../services/firebase/firestore.dart';
 
 class Finance extends StatefulWidget {
   String? sisaKas;
@@ -49,7 +48,7 @@ class _FinanceState extends State<Finance> {
                         Positioned(
                           bottom: 10,
                           right: 10,
-                          child: Text("Rp. -",
+                          child: Text("Rp. 0",
                               style: GoogleFonts.roboto(fontSize: 18)),
                         ),
                       ],
@@ -78,7 +77,7 @@ class _FinanceState extends State<Finance> {
                         Positioned(
                           bottom: 10,
                           right: 10,
-                          child: Text("Rp. -",
+                          child: Text("Rp. 0",
                               style: GoogleFonts.roboto(fontSize: 18)),
                         ),
                       ],
@@ -107,7 +106,7 @@ class _FinanceState extends State<Finance> {
                         Positioned(
                           bottom: 10,
                           right: 10,
-                          child: Text("Rp. -",
+                          child: Text("Rp. 0",
                               style: GoogleFonts.roboto(fontSize: 20)),
                         ),
                       ],

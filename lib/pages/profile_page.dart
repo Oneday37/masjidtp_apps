@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:penulisan_ilmiah_application/Pages/edit_keuangan_page.dart';
+import 'package:penulisan_ilmiah_application/pages/edit_keuangan_page.dart';
 import 'edit_jadwal_page.dart';
 
 class ProfilePage extends StatelessWidget {

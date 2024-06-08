@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:penulisan_ilmiah_application/Models/show_jadwal_jumat.dart';
+import 'package:penulisan_ilmiah_application/models/show_jadwal_jumat.dart';
 
-import '../Services Firebase/firestore.dart';
+import '../services/firebase/firestore.dart';
 
 class JadwalJumat extends StatefulWidget {
   const JadwalJumat({super.key});

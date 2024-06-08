@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import '../Services Firebase/firestore.dart';
+
+import '../services/firebase/firestore.dart';
 
 class EditJadwalPage extends StatefulWidget {
   const EditJadwalPage({super.key});
@@ -20,7 +21,9 @@ class _EditJadwalPageState extends State<EditJadwalPage> {
 
   @override
   void dispose() {
+    _tanggal.dispose();
     _khatib.dispose();
+    _imam.dispose();
     _muadzin.dispose();
     super.dispose();
   }
@@ -182,15 +185,15 @@ class _EditJadwalPageState extends State<EditJadwalPage> {
                         });
                         //Mengosongkan text field ketika data berhasil masuk
                         _tanggal.text = "HARI / BULAN / TAHUN";
-                        _khatib.clear();
-                        _imam.clear();
-                        _muadzin.clear();
+                        _khatib.text = " ";
+                        _imam.text = " ";
+                        _muadzin.text = " ";
 
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             backgroundColor: Colors.green[600],
                             content: Text(
-                              "JADWAL BERHASIL DIUPDATE",
+                              "JADWAL BERHASIL DISIMPAN",
                               style: GoogleFonts.roboto(
                                   fontSize: 17, fontWeight: FontWeight.bold),
                             ),

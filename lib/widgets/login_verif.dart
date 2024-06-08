@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:penulisan_ilmiah_application/Pages/home_page.dart';
-import 'package:penulisan_ilmiah_application/Pages/login_page.dart';
+import 'package:penulisan_ilmiah_application/pages/home_page.dart';
+import 'package:penulisan_ilmiah_application/pages/login_page.dart';
 
 class LoginVerif extends StatelessWidget {
   const LoginVerif({super.key});
