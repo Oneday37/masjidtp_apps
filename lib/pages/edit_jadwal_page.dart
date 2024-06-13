@@ -177,11 +177,11 @@ class _EditJadwalPageState extends State<EditJadwalPage> {
                         );
                       } else {
                         collectionRefJadwal.add({
-                          'tanggaljumat': _tanggal.text,
+                          'tanggalJumat': _tanggal.text,
                           'khatib': _khatib.text,
                           'imam': _imam.text,
                           'muadzin': _muadzin.text,
-                          'timestamp': FieldValue.serverTimestamp()
+                          'entryTime': FieldValue.serverTimestamp()
                         });
                         //Mengosongkan text field ketika data berhasil masuk
                         _tanggal.text = "HARI / BULAN / TAHUN";

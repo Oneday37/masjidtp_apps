@@ -1,21 +1,43 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class AuthService {
-  login(dataaccount, context) async {
+  // //Instansi firebase auth
+  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+
+  //Get user
+  User? getUser() {
+    return firebaseAuth.currentUser;
+  }
+
+  //login or sing in method
+  Future<UserCredential> signInWithEmailAndPassword(
+      String email, password) async {
+    //login or sing in
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: dataaccount['email'], password: dataaccount['password']);
-    } catch (e) {
-      showDialog(
-          context: context,
-          builder: (context) {
-            return CupertinoAlertDialog(
-              title: const Text("Login Failed"),
-              content: Text(e.toString()),
-            );
-          });
+      UserCredential userCredential = await firebaseAuth
+          .signInWithEmailAndPassword(email: email, password: password);
+      return userCredential;
+    }
+    //catch error
+    on FirebaseAuthException catch (e) {
+      throw Exception(e.code);
     }
   }
+
+  // login(dataaccount, context) async {
+  //   try {
+  //     final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+  //         email: dataaccount['email'], password: dataaccount['password']);
+  //   } catch (e) {
+  //     showDialog(
+  //         context: context,
+  //         builder: (context) {
+  //           return const CupertinoAlertDialog(
+  //             title: Text("Login Failed"),
+  //             content: Text(
+  //                 "Harap Memasukkan Data E-mail dan Password Dengan Benar"),
+  //           );
+  //         });
+  //   }
+  // }
 }

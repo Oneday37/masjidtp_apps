@@ -9,17 +9,16 @@ import 'package:penulisan_ilmiah_application/widgets/finance.dart';
 import 'package:penulisan_ilmiah_application/widgets/hadist_of_the_day.dart';
 import 'package:penulisan_ilmiah_application/widgets/jadwal_jumat.dart';
 import 'jadwal_sholat_page.dart';
-import 'profile_page.dart';
 import 'quran_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePageJamaah extends StatefulWidget {
+  const HomePageJamaah({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePageJamaah> createState() => _HomePageJamaahState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageJamaahState extends State<HomePageJamaah> {
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
@@ -41,7 +40,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.symmetric(vertical: 15),
             child: Finance(),
           ),
-          HadisHarian(),
+          const HadisHarian(),
           const SizedBox(
             height: 15,
           ),
@@ -55,7 +54,6 @@ class _HomePageState extends State<HomePage> {
     ),
     const JadwalSholat(),
     const QuranPage(),
-    const ProfilePage()
   ];
 
   @override
@@ -93,12 +91,6 @@ class _HomePageState extends State<HomePage> {
                 GButton(
                   icon: FlutterIslamicIcons.solidQuran2,
                   text: "Qur'an",
-                  textStyle: GoogleFonts.robotoCondensed(
-                      fontSize: 15, fontWeight: FontWeight.bold),
-                ),
-                GButton(
-                  icon: Icons.person_rounded,
-                  text: "Akun",
                   textStyle: GoogleFonts.robotoCondensed(
                       fontSize: 15, fontWeight: FontWeight.bold),
                 ),

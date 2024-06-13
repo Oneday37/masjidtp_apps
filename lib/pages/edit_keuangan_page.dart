@@ -216,7 +216,7 @@ class _EditKeuanganPageState extends State<EditKeuanganPage> {
                             int.parse(_pemasukan.text.replaceAll('.', '')),
                         'pengeluaranKas':
                             int.parse(_pengeluaran.text.replaceAll('.', '')),
-                        'timestamp': FieldValue.serverTimestamp()
+                        'entryTime': FieldValue.serverTimestamp()
                       });
                       //Mengosongkan text field ketika data berhasil masuk
                       _tanggal.text = "HARI / BULAN / TAHUN";

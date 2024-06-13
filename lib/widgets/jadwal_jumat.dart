@@ -21,7 +21,7 @@ class _JadwalJumatState extends State<JadwalJumat> {
           borderRadius: BorderRadius.circular(15)),
       child: StreamBuilder(
           stream: collectionRefJadwal
-              .orderBy('timestamp', descending: true)
+              .orderBy('entryTime', descending: true)
               .limit(1)
               .snapshots(),
           builder: (context, snapshot) {

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:penulisan_ilmiah_application/pages/home_page.dart';
+import 'package:penulisan_ilmiah_application/pages/home_page_admin.dart';
+import 'package:penulisan_ilmiah_application/pages/home_page_jamaah.dart';
 import 'package:penulisan_ilmiah_application/pages/login_page.dart';
+import 'package:penulisan_ilmiah_application/services/firebase/auth_gate.dart';
 
 class LoginVerif extends StatelessWidget {
   const LoginVerif({super.key});
@@ -44,7 +46,7 @@ class LoginVerif extends StatelessWidget {
                     ),
                   )),
               onTap: () {
-                Get.to(const LoginPage());
+                Get.to(const AuthGate());
               },
             ),
           ),
@@ -65,7 +67,7 @@ class LoginVerif extends StatelessWidget {
                   ),
                 )),
             onTap: () {
-              Get.to(const HomePage());
+              Get.to(const HomePageJamaah());
             },
           ),
         ],

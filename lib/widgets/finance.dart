@@ -22,7 +22,7 @@ class _FinanceState extends State<Finance> {
   Widget build(BuildContext context) {
     return StreamBuilder(
         stream: collectionRefKas
-            .orderBy('timestamp', descending: true)
+            .orderBy('entryTime', descending: true)
             .limit(1)
             .snapshots(),
         builder: (context, snapshot) {
