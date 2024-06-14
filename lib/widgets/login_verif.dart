@@ -29,26 +29,22 @@ class LoginVerif extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Hero(
-            tag: "adminLoginAnimation",
-            child: GestureDetector(
-              child: Container(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width / 2.5,
-                  decoration: BoxDecoration(
-                      color: Colors.green[600],
-                      borderRadius: BorderRadius.circular(15)),
-                  child: const Center(
-                    child: Text(
-                      "ADMIN",
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-                    ),
-                  )),
-              onTap: () {
-                Get.to(const AuthGate());
-              },
-            ),
+          GestureDetector(
+            child: Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width / 2.5,
+                decoration: BoxDecoration(
+                    color: Colors.green[600],
+                    borderRadius: BorderRadius.circular(15)),
+                child: const Center(
+                  child: Text(
+                    "ADMIN",
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+                  ),
+                )),
+            onTap: () {
+              Get.to(const AuthGate());
+            },
           ),
           const SizedBox(
             height: 15,

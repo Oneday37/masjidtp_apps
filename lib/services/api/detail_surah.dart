@@ -13,23 +13,54 @@ class Ayat {
 
   factory Ayat.fromJson(Map<String, dynamic> json) {
     return Ayat(
-      nomorAyat: json["nomorAyat"] ?? 0,
-      teksArab: json["teksArab"] ?? "Failed to get data",
-      teksIndonesia: json["teksIndonesia"] ?? "Failed to get data",
+      nomorAyat: json["nomorAyat"],
+      teksArab: json["teksArab"],
+      teksIndonesia: json["teksIndonesia"],
     );
   }
 }
 
-Future<List<Ayat>> fetchDataSurah(int id) async {
+class DataSurah {
+  final int nomor;
+  final String nama;
+  final String namaLatin;
+  final int jumlahAyat;
+  final String tempatTurun;
+  final String arti;
+  final List<Ayat> ayat;
+
+  DataSurah(
+      {required this.nomor,
+      required this.nama,
+      required this.namaLatin,
+      required this.jumlahAyat,
+      required this.tempatTurun,
+      required this.arti,
+      required this.ayat});
+
+  factory DataSurah.fromJson(Map<String, dynamic> json) {
+    var list = json["ayat"] as List;
+    List<Ayat> listAyat = list.map((i) => Ayat.fromJson(i)).toList();
+    return DataSurah(
+        nomor: json["nomor"],
+        nama: json["nama"],
+        namaLatin: json["namaLatin"],
+        jumlahAyat: json["jumlahAyat"],
+        tempatTurun: json["tempatTurun"],
+        arti: json["arti"],
+        ayat: listAyat);
+  }
+}
+
+Future<DataSurah> fetchDetailSurah(int endpoint) async {
   final response =
-      await http.get(Uri.parse("https://equran.id/api/v2/surat/${id}"));
-  print("https://equran.id/api/v2/surat/${id}");
+      await http.get(Uri.parse("https://equran.id/api/v2/surat/$endpoint"));
+
   if (response.statusCode == 200) {
     final responseBody = jsonDecode(response.body);
-    final listAyat = responseBody['ayat'] as List;
-    final result = listAyat.map((e) => Ayat.fromJson(e)).toList();
-    return result;
+    final dataSurah = responseBody['data'];
+    return DataSurah.fromJson(dataSurah);
   } else {
-    throw Exception('Failed to load album');
+    throw Exception('Failed to load data');
   }
 }

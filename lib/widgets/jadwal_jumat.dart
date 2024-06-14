@@ -120,7 +120,7 @@ class _JadwalJumatState extends State<JadwalJumat> {
               children: snapshot.data!.docs.map((e) {
                 return ShowDataJadwal(
                   tanggalJumat:
-                      (e.data() as dynamic)['tanggaljumat'].toString(),
+                      (e.data() as dynamic)['tanggalJumat'].toString(),
                   khatib: (e.data() as dynamic)['khatib'].toString(),
                   imam: (e.data() as dynamic)['imam'].toString(),
                   muadzin: (e.data() as dynamic)['muadzin'].toString(),

@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class Data {
+class DataQuran {
   final int nomor;
   final String nama;
   final String namaLatin;
@@ -9,7 +9,7 @@ class Data {
   final String tempatTurun;
   final String arti;
 
-  Data(
+  DataQuran(
       {required this.nomor,
       required this.nama,
       required this.namaLatin,
@@ -17,8 +17,8 @@ class Data {
       required this.tempatTurun,
       required this.arti});
 
-  factory Data.fromJson(Map<String, dynamic> json) {
-    return Data(
+  factory DataQuran.fromJson(Map<String, dynamic> json) {
+    return DataQuran(
         nomor: json["nomor"],
         nama: json["nama"],
         namaLatin: json["namaLatin"],
@@ -28,34 +28,15 @@ class Data {
   }
 }
 
-class Ayat {
-  final int nomorAyat;
-  final String teksArab;
-  final String teksIndonesia;
-
-  Ayat(
-      {required this.nomorAyat,
-      required this.teksArab,
-      required this.teksIndonesia});
-
-  factory Ayat.fromJson(Map<String, dynamic> json) {
-    return Ayat(
-      nomorAyat: json["nomorAyat"] ?? 0,
-      teksArab: json["teksArab"] ?? "Failed to get data",
-      teksIndonesia: json["teksIndonesia"] ?? "Failed to get data",
-    );
-  }
-}
-
-Future<List<Data>> fetchDataQuran() async {
+Future<List<DataQuran>> fetchDataQuran() async {
   final response = await http.get(Uri.parse("https://equran.id/api/v2/surat"));
 
   if (response.statusCode == 200) {
     final responseBody = jsonDecode(response.body);
     final listSurah = responseBody['data'] as List;
-    final result = listSurah.map((e) => Data.fromJson(e)).toList();
+    final result = listSurah.map((e) => DataQuran.fromJson(e)).toList();
     return result;
   } else {
-    throw Exception('Failed to load album');
+    throw Exception('Failed to load data');
   }
 }

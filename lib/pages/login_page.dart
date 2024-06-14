@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                 style: GoogleFonts.oswald(
                     fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              content: Column(
+              content: const Column(
                 children: [
                   Divider(
                     color: Colors.black,
@@ -63,14 +63,11 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Hero(
-                tag: "adminLoginAnimation",
-                child: CircleAvatar(
-                  radius: 55,
-                  child: Icon(
-                    Icons.person,
-                    size: 65,
-                  ),
+              const CircleAvatar(
+                radius: 55,
+                child: Icon(
+                  Icons.person,
+                  size: 65,
                 ),
               ),
               const SizedBox(height: 5),
