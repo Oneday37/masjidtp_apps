@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
-import '../services/firebase/firestore.dart';
+import '../../services/firebase/firestore.dart';
 
 class EditJadwalPage extends StatefulWidget {
   const EditJadwalPage({super.key});
@@ -184,10 +185,11 @@ class _EditJadwalPageState extends State<EditJadwalPage> {
                           'entryTime': FieldValue.serverTimestamp()
                         });
                         //Mengosongkan text field ketika data berhasil masuk
-                        _tanggal.text = "HARI / BULAN / TAHUN";
-                        _khatib.text = " ";
-                        _imam.text = " ";
-                        _muadzin.text = " ";
+                        _tanggal.text = "";
+                        _khatib.text = "";
+                        _imam.text = "";
+                        _muadzin.text = "";
+                        Get.back();
 
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(

@@ -18,36 +18,48 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.data.namaLatin),
+        title: Column(
+          children: [
+            Text(
+              widget.data.namaLatin,
+              style: GoogleFonts.oswald(fontSize: 25),
+            ),
+            Text(widget.data.arti,
+                style: GoogleFonts.oswald(fontSize: 15, color: Colors.grey))
+          ],
+        ),
         centerTitle: true,
       ),
-      body: FutureBuilder(
-          future: fetchDetailSurah(widget.data.nomor),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return Container();
-            }
-            if (snapshot.hasData) {
-              final data = snapshot.data;
-              if (widget.data.nomor == 1 || widget.data.nomor == 9) {
-                return isiSurat(data);
-              } else {
-                return ListView(
-                  children: [
-                    const Center(
-                        child: Text(basmala, style: TextStyle(fontSize: 30))),
-                    const SizedBox(height: 20),
-                    isiSurat(data),
-                  ],
-                );
+      body: Padding(
+        padding: const EdgeInsets.only(top: 15),
+        child: FutureBuilder(
+            future: fetchDetailSurah(widget.data.nomor),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Container();
               }
-            }
-            return Text("Error: ${snapshot.error}");
-          }),
+              if (snapshot.hasData) {
+                final data = snapshot.data;
+                if (widget.data.nomor == 1 || widget.data.nomor == 9) {
+                  return isiSurah(data);
+                } else {
+                  return ListView(
+                    children: [
+                      const Center(
+                          child: Text(basmala, style: TextStyle(fontSize: 30))),
+                      const SizedBox(height: 20),
+                      isiSurah(data),
+                    ],
+                  );
+                }
+              }
+              return Text("Error: ${snapshot.error}");
+            }),
+      ),
     );
   }
 
-  ListView isiSurat(DataSurah? data) {
+  ListView isiSurah(DataSurah? data) {
     return ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,

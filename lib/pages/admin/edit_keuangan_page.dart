@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
-import '../services/firebase/firestore.dart';
+import '../../services/firebase/firestore.dart';
 
 class EditKeuanganPage extends StatefulWidget {
   const EditKeuanganPage({super.key});
@@ -219,10 +220,11 @@ class _EditKeuanganPageState extends State<EditKeuanganPage> {
                         'entryTime': FieldValue.serverTimestamp()
                       });
                       //Mengosongkan text field ketika data berhasil masuk
-                      _tanggal.text = "HARI / BULAN / TAHUN";
-                      _sisaKas.text = " ";
-                      _pemasukan.text = " ";
-                      _pengeluaran.text = " ";
+                      _tanggal.text = "";
+                      _sisaKas.text = "";
+                      _pemasukan.text = "";
+                      _pengeluaran.text = "";
+                      Get.back();
 
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(

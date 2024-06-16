@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:penulisan_ilmiah_application/pages/home_page_admin.dart';
+import 'package:penulisan_ilmiah_application/pages/admin/home_page_admin.dart';
 
 import '../services/firebase/auth_service.dart';
 

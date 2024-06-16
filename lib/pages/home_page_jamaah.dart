@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:intl/intl.dart';
-import 'package:penulisan_ilmiah_application/widgets/events.dart';
+import 'package:penulisan_ilmiah_application/widgets/kegiatan_masjid.dart';
 import 'package:penulisan_ilmiah_application/widgets/finance.dart';
 import 'package:penulisan_ilmiah_application/widgets/hadist_of_the_day.dart';
 import 'package:penulisan_ilmiah_application/widgets/jadwal_jumat.dart';

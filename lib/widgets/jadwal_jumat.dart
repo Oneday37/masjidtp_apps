@@ -25,7 +25,27 @@ class _JadwalJumatState extends State<JadwalJumat> {
               .limit(1)
               .snapshots(),
           builder: (context, snapshot) {
-            if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+            if (snapshot.hasError) {
+              return Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    Text(
+                      "Jadwal Jum'at",
+                      style: GoogleFonts.oswald(fontSize: 18),
+                    ),
+                    const Divider(
+                      color: Colors.black,
+                    ),
+                    Text(
+                      "Error ${snapshot.error}",
+                      style: GoogleFonts.roboto(
+                          fontSize: 15, fontWeight: FontWeight.w600),
+                    )
+                  ],
+                ),
+              );
+            } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
               return Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
@@ -115,18 +135,19 @@ class _JadwalJumatState extends State<JadwalJumat> {
                   ],
                 ),
               );
+            } else {
+              return Column(
+                children: snapshot.data!.docs.map((e) {
+                  return ShowDataJadwal(
+                    tanggalJumat:
+                        (e.data() as dynamic)['tanggalJumat'].toString(),
+                    khatib: (e.data() as dynamic)['khatib'].toString(),
+                    imam: (e.data() as dynamic)['imam'].toString(),
+                    muadzin: (e.data() as dynamic)['muadzin'].toString(),
+                  );
+                }).toList(),
+              );
             }
-            return Column(
-              children: snapshot.data!.docs.map((e) {
-                return ShowDataJadwal(
-                  tanggalJumat:
-                      (e.data() as dynamic)['tanggalJumat'].toString(),
-                  khatib: (e.data() as dynamic)['khatib'].toString(),
-                  imam: (e.data() as dynamic)['imam'].toString(),
-                  muadzin: (e.data() as dynamic)['muadzin'].toString(),
-                );
-              }).toList(),
-            );
           }),
     ));
   }
