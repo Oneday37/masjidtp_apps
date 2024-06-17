@@ -32,8 +32,8 @@ class ProfilePage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            listMenu(
-                Icons.event_note, "Kegiatan Masjid", const EditKegiatanPage()),
+            listMenu(Icons.event_note, "Kegiatan Masjid",
+                const OptionKegiatanPage()),
             const Divider(
               color: Colors.black,
             ),

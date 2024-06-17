@@ -59,7 +59,8 @@ class _HadisHarianState extends State<HadisHarian> {
               child: Column(
                 children: [
                   Text("Hadis Harian",
-                      style: GoogleFonts.oswald(fontSize: 20),
+                      style: GoogleFonts.oswald(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                       textAlign: TextAlign.center),
                   const Divider(
                     color: Colors.black,

@@ -9,7 +9,7 @@ import 'package:penulisan_ilmiah_application/widgets/finance.dart';
 import 'package:penulisan_ilmiah_application/widgets/hadist_of_the_day.dart';
 import 'package:penulisan_ilmiah_application/widgets/jadwal_jumat.dart';
 import 'jadwal_sholat_page.dart';
-import 'quran_page.dart';
+import 'quran/quran_page.dart';
 
 class HomePageJamaah extends StatefulWidget {
   const HomePageJamaah({super.key});

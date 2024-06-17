@@ -6,16 +6,18 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:penulisan_ilmiah_application/services/firebase/firestore.dart';
 
-class TambahJadwalPage extends StatefulWidget {
-  const TambahJadwalPage({super.key});
+import '../../services/firebase/firestore.dart';
+
+class EditKegiatanPage extends StatefulWidget {
+  DocumentSnapshot documentSnapshot;
+  EditKegiatanPage({super.key, required this.documentSnapshot});
 
   @override
-  State<TambahJadwalPage> createState() => _TambahJadwalPageState();
+  State<EditKegiatanPage> createState() => _EditKegiatanPageState();
 }
 
-class _TambahJadwalPageState extends State<TambahJadwalPage> {
+class _EditKegiatanPageState extends State<EditKegiatanPage> {
   TextEditingController _tanggal = TextEditingController();
   TextEditingController _judul = TextEditingController();
   TextEditingController _deskripsi = TextEditingController();
@@ -33,9 +35,16 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    Map<String, dynamic> data =
+        widget.documentSnapshot.data() as Map<String, dynamic>;
+    _tanggal.text = data['tanggalKegiatan'];
+    _judul.text = data['namaKegiatan'];
+    _deskripsi.text = data['deskripsiKegiatan'];
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tambah Jadwal", style: GoogleFonts.oswald(fontSize: 27)),
+        title: Text("Edit Kegiatan Masjid",
+            style: GoogleFonts.oswald(fontSize: 27)),
         centerTitle: true,
       ),
       body: Form(
@@ -128,16 +137,16 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
                   GestureDetector(
                     child: Center(
                       child: image == null
-                          ? Image.asset(
-                              "assets/upload_image.jpg",
+                          ? Image.network(
+                              data['dokumentasiKegiatan'],
                               height: 250,
-                              width: 250,
+                              width: double.infinity,
                               fit: BoxFit.cover,
                             )
                           : Image.file(
                               File(image!.path),
-                              height: 200,
-                              width: 200,
+                              height: 250,
+                              width: double.infinity,
                               fit: BoxFit.cover,
                             ),
                     ),
@@ -162,7 +171,7 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
                               borderRadius: BorderRadius.circular(15),
                             ),
                             child: Center(
-                              child: Text("SIMPAN",
+                              child: Text("UPDATE",
                                   style: GoogleFonts.roboto(
                                       fontSize: 17,
                                       fontWeight: FontWeight.bold)),
@@ -191,23 +200,19 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
                               ),
                             );
                           } else {
-                            collectionRefKegiatan.add({
+                            widget.documentSnapshot.reference.update({
                               "tanggalKegiatan": _tanggal.text,
                               "namaKegiatan": _judul.text,
                               "deskripsiKegiatan": _deskripsi.text,
                               "dokumentasiKegiatan": urlImage,
                               'entryTime': FieldValue.serverTimestamp()
                             });
-                            //Mengosongkan Data
-                            _tanggal.text = "";
-                            _judul.text = "";
-                            _deskripsi.text = "";
                             Get.back();
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 backgroundColor: Colors.green[600],
                                 content: Text(
-                                  "KEGIATAN BERHASIL DISIMPAN",
+                                  "KEGIATAN BERHASIL DIUPDATE",
                                   style: GoogleFonts.roboto(
                                       fontSize: 17,
                                       fontWeight: FontWeight.bold),

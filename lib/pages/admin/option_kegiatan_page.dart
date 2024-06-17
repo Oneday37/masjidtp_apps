@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:penulisan_ilmiah_application/pages/admin/edit_kegiatan.dart';
+import 'package:penulisan_ilmiah_application/pages/admin/option_edit_kegiatan_page.dart';
 
 import 'tambah_kegiatan.dart';
 
-class EditKegiatanPage extends StatefulWidget {
-  const EditKegiatanPage({super.key});
+class OptionKegiatanPage extends StatefulWidget {
+  const OptionKegiatanPage({super.key});
 
   @override
-  State<EditKegiatanPage> createState() => _EditKegiatanPageState();
+  State<OptionKegiatanPage> createState() => _OptionKegiatanPageState();
 }
 
-class _EditKegiatanPageState extends State<EditKegiatanPage> {
+class _OptionKegiatanPageState extends State<OptionKegiatanPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +23,7 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          listItem("Edit Kegiatan Masjid", const EditPage()),
+          listItem("Edit Kegiatan Masjid", const OptionEditPage()),
           // ignore: prefer_const_constructors
           SizedBox(height: 5),
           listItem("Tambah Kegiatan Masjid", const TambahJadwalPage())
@@ -35,11 +35,11 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
   listItem(String detail, direction) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: SizedBox(
-        height: 70,
-        child: Card(
-          elevation: 5,
-          child: GestureDetector(
+      child: GestureDetector(
+        child: SizedBox(
+          height: 70,
+          child: Card(
+            elevation: 5,
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Row(
@@ -50,11 +50,11 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
                 ],
               ),
             ),
-            onTap: () {
-              Get.to(direction);
-            },
           ),
         ),
+        onTap: () {
+          Get.to(direction);
+        },
       ),
     );
   }

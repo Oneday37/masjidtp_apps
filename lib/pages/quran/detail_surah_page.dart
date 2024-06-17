@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:penulisan_ilmiah_application/services/api/detail_surah.dart';
 import 'package:quran/quran.dart';
 
-import '../services/api/quran.dart';
+import '../../services/api/quran.dart';
 
 class DetailSurahPage extends StatefulWidget {
   DataQuran data;

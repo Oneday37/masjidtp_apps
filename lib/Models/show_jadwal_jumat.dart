@@ -27,7 +27,7 @@ class _ShowDataState extends State<ShowDataJadwal> {
         children: [
           Text("Jum'at, ${widget.tanggalJumat}",
               style: GoogleFonts.oswald(
-                  fontSize: 18, fontWeight: FontWeight.bold)),
+                  fontSize: 20, fontWeight: FontWeight.w500)),
           const Divider(
             color: Colors.black,
           ),

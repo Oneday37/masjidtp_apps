@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:penulisan_ilmiah_application/models/show_jadwal_jumat.dart';
-
 import '../services/firebase/firestore.dart';
 
 class JadwalJumat extends StatefulWidget {
@@ -32,7 +31,8 @@ class _JadwalJumatState extends State<JadwalJumat> {
                   children: [
                     Text(
                       "Jadwal Jum'at",
-                      style: GoogleFonts.oswald(fontSize: 18),
+                      style: GoogleFonts.oswald(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
                     const Divider(
                       color: Colors.black,
@@ -45,7 +45,8 @@ class _JadwalJumatState extends State<JadwalJumat> {
                   ],
                 ),
               );
-            } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+            }
+            if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
               return Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
@@ -53,7 +54,7 @@ class _JadwalJumatState extends State<JadwalJumat> {
                   children: [
                     Text("Jum'at, -",
                         style: GoogleFonts.oswald(
-                            fontSize: 20, fontWeight: FontWeight.bold)),
+                            fontSize: 20, fontWeight: FontWeight.w500)),
                     const Divider(
                       color: Colors.black,
                     ),
@@ -63,11 +64,11 @@ class _JadwalJumatState extends State<JadwalJumat> {
                           width: MediaQuery.of(context).size.width / 3.2,
                           child: Text("KHATIB JUM'AT",
                               style: GoogleFonts.roboto(
-                                  fontSize: 15, fontWeight: FontWeight.w600)),
+                                  fontSize: 15, fontWeight: FontWeight.w500)),
                         ),
                         Text(":",
                             style: GoogleFonts.roboto(
-                                fontSize: 15, fontWeight: FontWeight.w600)),
+                                fontSize: 15, fontWeight: FontWeight.w500)),
                         const SizedBox(
                           width: 10,
                         ),
@@ -75,7 +76,7 @@ class _JadwalJumatState extends State<JadwalJumat> {
                           child: Text(
                             "-",
                             style: GoogleFonts.roboto(
-                                fontSize: 15, fontWeight: FontWeight.w600),
+                                fontSize: 15, fontWeight: FontWeight.w500),
                           ),
                         ),
                       ],
