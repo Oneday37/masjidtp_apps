@@ -16,12 +16,15 @@ class _DaftarKegiatanPageState extends State<DaftarKegiatanPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Daftar Kegiatan Masjid"),
         centerTitle: true,
       ),
       body: StreamBuilder(
-          stream: collectionRefKegiatan.snapshots(),
+          stream: collectionRefKegiatan
+              .orderBy('entryTime', descending: true)
+              .snapshots(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(

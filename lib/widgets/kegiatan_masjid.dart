@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:penulisan_ilmiah_application/models/show_data_kegiatan.dart';
 import 'package:penulisan_ilmiah_application/pages/daftar_kegiatan_page.dart';
+import 'package:penulisan_ilmiah_application/pages/detail_kegiatan_page.dart';
 import 'package:penulisan_ilmiah_application/services/firebase/firestore.dart';
 
 class EventSection extends StatefulWidget {
@@ -18,6 +20,7 @@ class _EventState extends State<EventSection> {
     return Card(
         child: Container(
       decoration: BoxDecoration(
+          color: Colors.white,
           border: Border.all(color: Colors.black, width: 2),
           borderRadius: BorderRadius.circular(15)),
       child: Padding(
@@ -65,23 +68,32 @@ class _EventState extends State<EventSection> {
                         Column(
                             children: snapshot.data!.docs.map((e) {
                           return ShowDataKegiatan(
-                              tanggalKegiatan:
-                                  (e.data() as dynamic)['tanggalKegiatan']
-                                      .toString(),
-                              namaKegiatan:
-                                  (e.data() as dynamic)['namaKegiatan']
-                                      .toString(),
-                              deskripsiKegiatan:
-                                  (e.data() as dynamic)['deskripsiKegiatan']
-                                      .toString(),
-                              dokumentasiKegiatan:
-                                  (e.data() as dynamic)['dokumentasiKegiatan']
-                                      .toString());
+                            tanggalKegiatan:
+                                (e.data() as dynamic)['tanggalKegiatan']
+                                    .toString(),
+                            namaKegiatan: (e.data() as dynamic)['namaKegiatan']
+                                .toString(),
+                            deskripsiKegiatan:
+                                (e.data() as dynamic)['deskripsiKegiatan']
+                                    .toString(),
+                            dokumentasiKegiatan:
+                                (e.data() as dynamic)['dokumentasiKegiatan']
+                                    .toString(),
+                            detailKegiatan: () async {
+                              DocumentSnapshot documentSnapshot =
+                                  await collectionRefKegiatan.doc(e.id).get();
+                              Get.to(DetailKegiatanPage(
+                                  getData: documentSnapshot));
+                            },
+                          );
                         }).toList()),
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
-                              child: const Text("+ Lainnya"),
+                              child: const Text(
+                                "+ Lainnya",
+                                style: TextStyle(color: Colors.black),
+                              ),
                               onPressed: () {
                                 Get.to(const DaftarKegiatanPage());
                               }),

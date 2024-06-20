@@ -20,6 +20,7 @@ class _JadwalSholatState extends State<JadwalSholat> {
     params.madhab = Madhab.hanafi;
     final prayerTimes = PrayerTimes.today(coordinates, params);
     return Scaffold(
+      backgroundColor: Colors.white,
       body: TimerBuilder.periodic(
         const Duration(minutes: 1),
         builder: (context) {

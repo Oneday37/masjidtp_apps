@@ -51,6 +51,8 @@ dependencies:
   firebase_storage: ^11.7.5
   image_picker: ^1.1.2
   timer_builder: ^2.0.0
+  bloc: ^8.1.4
+  flutter_bloc: ^8.1.6
   
 
 dev_dependencies:
@@ -81,6 +83,8 @@ flutter:
     - assets/masjid.jpg
     - assets/tp1.jpg
     - assets/rupiah.png
+    - assets/income_money.jpg
+    - assets/pengeluaran.png
     - assets/kiblat_compas.png
     - assets/upload_image.jpg
     

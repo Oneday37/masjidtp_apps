@@ -34,6 +34,7 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Tambah Jadwal", style: GoogleFonts.oswald(fontSize: 27)),
         centerTitle: true,
@@ -136,8 +137,8 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
                             )
                           : Image.file(
                               File(image!.path),
-                              height: 200,
-                              width: 200,
+                              height: 250,
+                              width: double.infinity,
                               fit: BoxFit.cover,
                             ),
                     ),

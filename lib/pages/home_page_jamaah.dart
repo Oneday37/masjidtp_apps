@@ -26,11 +26,13 @@ class _HomePageJamaahState extends State<HomePageJamaah> {
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       child: ListView(
         children: [
+          //Sistem penanggalan islam / Kalender hijriah
           Text(
             HijriCalendar.now().toFormat("dd MMMM yyyy"),
             style: GoogleFonts.openSansCondensed(
                 fontSize: 26, fontWeight: FontWeight.bold),
           ),
+          //Sistem penanggalan global
           Text(
             DateFormat("EEEE, d MMMM yyyy").format(DateTime.now()),
             style:
@@ -60,6 +62,7 @@ class _HomePageJamaahState extends State<HomePageJamaah> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: _widgetOptions[_selectedIndex],
         bottomNavigationBar: Container(
           decoration: const BoxDecoration(

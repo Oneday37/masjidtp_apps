@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-
 import '../../services/firebase/firestore.dart';
 
 class EditKeuanganPage extends StatefulWidget {
@@ -56,6 +55,7 @@ class _EditKeuanganPageState extends State<EditKeuanganPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Keuangan Masjid", style: GoogleFonts.oswald(fontSize: 27)),
         centerTitle: true,

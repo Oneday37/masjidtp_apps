@@ -16,6 +16,7 @@ class _JadwalJumatState extends State<JadwalJumat> {
     return Card(
         child: Container(
       decoration: BoxDecoration(
+          color: Colors.white,
           border: Border.all(color: Colors.black, width: 2),
           borderRadius: BorderRadius.circular(15)),
       child: StreamBuilder(

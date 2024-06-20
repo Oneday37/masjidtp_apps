@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:penulisan_ilmiah_application/pages/admin/option_edit_kegiatan_page.dart';
-
 import 'tambah_kegiatan.dart';
 
 class OptionKegiatanPage extends StatefulWidget {
@@ -16,6 +15,7 @@ class _OptionKegiatanPageState extends State<OptionKegiatanPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Kegiatan Masjid", style: GoogleFonts.oswald(fontSize: 27)),
         centerTitle: true,

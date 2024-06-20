@@ -7,6 +7,7 @@ class LoadingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -21,8 +22,15 @@ class LoadingPage extends StatelessWidget {
             "MASJID TAMAN PUSPA",
             style: GoogleFonts.oswald(fontSize: 28),
             textAlign: TextAlign.center,
-          )
+          ),
         ],
+      ),
+      bottomSheet: Container(
+        color: Colors.white,
+        child: Text(
+          "Version 1.0",
+          style: GoogleFonts.oswald(fontSize: 18),
+        ),
       ),
     );
   }

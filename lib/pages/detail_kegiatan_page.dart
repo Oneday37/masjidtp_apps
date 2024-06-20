@@ -26,8 +26,8 @@ class DetailKegiatanPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: Text(getData['tanggalKegiatan'],
-                style: GoogleFonts.roboto(
+            child: Text("Dipublish tanggal: ${getData['tanggalKegiatan']}",
+                style: GoogleFonts.openSansCondensed(
                     fontSize: 15, fontWeight: FontWeight.bold)),
           ),
           Padding(

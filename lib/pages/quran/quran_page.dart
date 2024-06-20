@@ -16,7 +16,9 @@ class _QuranPageState extends State<QuranPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: Text(
           "Al-Qur'an",
@@ -29,12 +31,13 @@ class _QuranPageState extends State<QuranPage> {
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(
-                child: CircularProgressIndicator(
-                  color: Colors.green[600],
-                ),
+                child: CircularProgressIndicator(color: Colors.green[600]),
               );
-            }
-            if (snapshot.hasData) {
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text("Error: ${snapshot.error}"),
+              );
+            } else {
               final data = snapshot.data;
               return ListView.builder(
                   itemCount: data!.length,
@@ -49,12 +52,12 @@ class _QuranPageState extends State<QuranPage> {
                           ),
                           title: Text(getDataSurah.namaLatin,
                               style: GoogleFonts.openSansCondensed(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                                  fontSize: 18, fontWeight: FontWeight.bold)),
                           subtitle: Text(getDataSurah.arti,
                               style: GoogleFonts.roboto(
-                                  fontSize: 15, color: Colors.grey)),
+                                  fontSize: 13, color: Colors.grey)),
                           trailing: Text(getSurahNameArabic(getDataSurah.nomor),
-                              style: const TextStyle(fontSize: 20)),
+                              style: const TextStyle(fontSize: 18)),
                           isThreeLine: false,
                           dense: true,
                           onTap: () {
@@ -68,7 +71,6 @@ class _QuranPageState extends State<QuranPage> {
                     );
                   });
             }
-            return Container();
           }),
     );
   }

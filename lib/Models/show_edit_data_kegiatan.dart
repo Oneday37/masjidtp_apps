@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ShowEditDataKegiatan extends StatefulWidget {
@@ -58,7 +60,73 @@ class _ShowEditDataKegiatanState extends State<ShowEditDataKegiatan> {
                   IconButton(
                       icon: const Icon(Icons.delete_forever),
                       onPressed: () {
-                        widget.deleteEvent();
+                        showCupertinoDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (context) {
+                            return CupertinoAlertDialog(
+                              title: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.warning,
+                                    color: Colors.red,
+                                  ),
+                                  Text(
+                                    "PERINGATAN",
+                                    style: GoogleFonts.oswald(fontSize: 20),
+                                  )
+                                ],
+                              ),
+                              content: Column(
+                                children: [
+                                  const Divider(
+                                    color: Colors.black,
+                                  ),
+                                  Text(
+                                    "Apakah anda ingin menghapus data dari database?",
+                                    style: GoogleFonts.roboto(fontSize: 15),
+                                  ),
+                                ],
+                              ),
+                              actions: [
+                                CupertinoDialogAction(
+                                  child: Text(
+                                    "TIDAK",
+                                    style: GoogleFonts.roboto(
+                                        fontSize: 15, color: Colors.red),
+                                  ),
+                                  onPressed: () {
+                                    Get.back();
+                                  },
+                                ),
+                                CupertinoDialogAction(
+                                  child: Text("YA",
+                                      style: GoogleFonts.roboto(
+                                        fontSize: 15,
+                                        color: Colors.black,
+                                      )),
+                                  onPressed: () {
+                                    widget.deleteEvent();
+                                    Get.back();
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        backgroundColor: Colors.green[600],
+                                        content: Text(
+                                          "DATA BERHASIL DIHAPUS",
+                                          style: GoogleFonts.roboto(
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        duration: const Duration(seconds: 3),
+                                      ),
+                                    );
+                                  },
+                                )
+                              ],
+                            );
+                          },
+                        );
                       }),
                 ],
               ),

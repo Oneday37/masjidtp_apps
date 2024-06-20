@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:penulisan_ilmiah_application/models/show_edit_data_kegiatan.dart';
 import 'package:penulisan_ilmiah_application/services/firebase/firestore.dart';
-
 import 'edit_kegiatan_page.dart';
 
 class OptionEditPage extends StatelessWidget {
@@ -13,6 +12,7 @@ class OptionEditPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Edit Kegiatan", style: GoogleFonts.oswald(fontSize: 27)),
         centerTitle: true,

@@ -24,20 +24,7 @@ class AuthService {
     }
   }
 
-  // login(dataaccount, context) async {
-  //   try {
-  //     final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //         email: dataaccount['email'], password: dataaccount['password']);
-  //   } catch (e) {
-  //     showDialog(
-  //         context: context,
-  //         builder: (context) {
-  //           return const CupertinoAlertDialog(
-  //             title: Text("Login Failed"),
-  //             content: Text(
-  //                 "Harap Memasukkan Data E-mail dan Password Dengan Benar"),
-  //           );
-  //         });
-  //   }
-  // }
+  Future<void> signUserOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
 }

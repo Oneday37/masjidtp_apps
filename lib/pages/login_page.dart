@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:penulisan_ilmiah_application/pages/admin/home_page_admin.dart';
-
 import '../services/firebase/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
@@ -56,6 +53,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Form(
@@ -122,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: 50,
                     width: MediaQuery.of(context).size.width / 3,
                     decoration: BoxDecoration(
-                        color: Colors.green[700],
+                        color: Colors.green[600],
                         borderRadius: BorderRadius.circular(15)),
                     child: const Center(
                       child: Text(

@@ -21,8 +21,19 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
   TextEditingController _tanggal = TextEditingController();
   TextEditingController _judul = TextEditingController();
   TextEditingController _deskripsi = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   XFile? image;
   UploadTask? uploadTask;
+
+  @override
+  void initState() {
+    super.initState();
+    Map<String, dynamic> data =
+        widget.documentSnapshot.data() as Map<String, dynamic>;
+    _tanggal.text = data['tanggalKegiatan'];
+    _judul.text = data['namaKegiatan'];
+    _deskripsi.text = data['deskripsiKegiatan'];
+  }
 
   @override
   void dispose() {
@@ -32,15 +43,10 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
     super.dispose();
   }
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     Map<String, dynamic> data =
         widget.documentSnapshot.data() as Map<String, dynamic>;
-    _tanggal.text = data['tanggalKegiatan'];
-    _judul.text = data['namaKegiatan'];
-    _deskripsi.text = data['deskripsiKegiatan'];
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Edit Kegiatan Masjid",
@@ -154,52 +160,38 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
                       final picture = await ImagePicker()
                           .pickImage(source: ImageSource.gallery);
                       if (picture != null) {
-                        image = picture;
-                        setState(() {});
+                        setState(() {
+                          image = picture;
+                        });
                       }
                     },
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 30),
                     child: GestureDetector(
-                        child: Center(
-                          child: Container(
-                            height: 50,
-                            width: MediaQuery.of(context).size.width / 3,
-                            decoration: BoxDecoration(
-                              color: Colors.green[600],
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Center(
-                              child: Text("UPDATE",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold)),
-                            ),
+                      child: Center(
+                        child: Container(
+                          height: 50,
+                          width: MediaQuery.of(context).size.width / 3,
+                          decoration: BoxDecoration(
+                            color: Colors.green[600],
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Center(
+                            child: Text("UPDATE",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 17, fontWeight: FontWeight.bold)),
                           ),
                         ),
-                        onTap: () async {
-                          final ref = referenceImage.child(image!.name);
-                          uploadTask = ref.putFile(File(image!.path));
-                          final urlImage = await ref.getDownloadURL();
+                      ),
+                      onTap: () async {
+                        if (_formKey.currentState!.validate()) {
+                          if (image != null) {
+                            final ref = referenceImage.child(image!.name);
+                            uploadTask = ref.putFile(File(image!.path));
 
-                          if (_tanggal.text == "" ||
-                              _judul.text == "" ||
-                              _deskripsi.text == "") {
-                            _formKey.currentState?.validate();
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                backgroundColor: Colors.red[600],
-                                content: Text(
-                                  "HARAP MENGISIKAN SEMUA DATA !!!",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                duration: const Duration(seconds: 3),
-                              ),
-                            );
-                          } else {
+                            final urlImage = await ref.getDownloadURL();
+
                             widget.documentSnapshot.reference.update({
                               "tanggalKegiatan": _tanggal.text,
                               "namaKegiatan": _judul.text,
@@ -207,21 +199,42 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
                               "dokumentasiKegiatan": urlImage,
                               'entryTime': FieldValue.serverTimestamp()
                             });
-                            Get.back();
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                backgroundColor: Colors.green[600],
-                                content: Text(
-                                  "KEGIATAN BERHASIL DIUPDATE",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                duration: const Duration(seconds: 3),
-                              ),
-                            );
+                          } else {
+                            widget.documentSnapshot.reference.update({
+                              "tanggalKegiatan": _tanggal.text,
+                              "namaKegiatan": _judul.text,
+                              "deskripsiKegiatan": _deskripsi.text,
+                              'entryTime': FieldValue.serverTimestamp()
+                            });
                           }
-                        }),
+
+                          Get.back();
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              backgroundColor: Colors.green[600],
+                              content: Text(
+                                "KEGIATAN BERHASIL DIUPDATE",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 17, fontWeight: FontWeight.bold),
+                              ),
+                              duration: const Duration(seconds: 3),
+                            ),
+                          );
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              backgroundColor: Colors.red[600],
+                              content: Text(
+                                "HARAP MENGISIKAN SEMUA DATA !!!",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 17, fontWeight: FontWeight.bold),
+                              ),
+                              duration: const Duration(seconds: 3),
+                            ),
+                          );
+                        }
+                      },
+                    ),
                   ),
                 ],
               ),

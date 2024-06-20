@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:penulisan_ilmiah_application/services/api/detail_surah.dart';
 import 'package:quran/quran.dart';
-
 import '../../services/api/quran.dart';
 
 class DetailSurahPage extends StatefulWidget {
@@ -17,6 +16,7 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Column(
           children: [
@@ -37,8 +37,9 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Container();
-              }
-              if (snapshot.hasData) {
+              } else if (snapshot.hasError) {
+                return Center(child: Text("Error: ${snapshot.error}"));
+              } else {
                 final data = snapshot.data;
                 if (widget.data.nomor == 1 || widget.data.nomor == 9) {
                   return isiSurah(data);
@@ -53,7 +54,6 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
                   );
                 }
               }
-              return Text("Error: ${snapshot.error}");
             }),
       ),
     );
@@ -73,8 +73,8 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Text(
-                    getVerse(data.nomor, getDetailSurah.nomorAyat) +
-                        getVerseEndSymbol(getDetailSurah.nomorAyat),
+                    getVerse(data.nomor, getDetailSurah.nomorAyat,
+                        verseEndSymbol: true),
                     style: GoogleFonts.roboto(fontSize: 20),
                     textAlign: TextAlign.end,
                   ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:penulisan_ilmiah_application/pages/admin/edit_keuangan_page.dart';
+import 'package:penulisan_ilmiah_application/services/firebase/auth_service.dart';
 import 'edit_jadwal_page.dart';
 import 'option_kegiatan_page.dart';
 
@@ -11,6 +12,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20),
         child: Column(
@@ -42,7 +44,16 @@ class ProfilePage extends StatelessWidget {
               color: Colors.black,
             ),
             listMenu(
-                Icons.calendar_today, "Jadwal Jum'at", const EditJadwalPage())
+                Icons.calendar_today, "Jadwal Jum'at", const EditJadwalPage()),
+            const Divider(
+              color: Colors.black,
+            ),
+            TextButton.icon(
+                label: const Text("Logout"),
+                icon: const Icon(Icons.logout_rounded),
+                onPressed: () async {
+                  await AuthService().signUserOut();
+                })
           ],
         ),
       ),
