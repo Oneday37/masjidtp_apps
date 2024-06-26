@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
-  // //Instansi firebase auth
+  //Instansi Firebase Authentication
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
   //Get user
@@ -9,21 +9,21 @@ class AuthService {
     return firebaseAuth.currentUser;
   }
 
-  //login or sing in method
+  //Login Method
   Future<UserCredential> signInWithEmailAndPassword(
       String email, password) async {
-    //login or sing in
     try {
       UserCredential userCredential = await firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
       return userCredential;
     }
-    //catch error
+    //Catch Error
     on FirebaseAuthException catch (e) {
       throw Exception(e.code);
     }
   }
 
+  //Logout Method
   Future<void> signUserOut() async {
     await FirebaseAuth.instance.signOut();
   }

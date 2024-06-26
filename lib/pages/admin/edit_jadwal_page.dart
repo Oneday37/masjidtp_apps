@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-
 import '../../services/firebase/firestore.dart';
 
 class EditJadwalPage extends StatefulWidget {
@@ -54,6 +53,8 @@ class _EditJadwalPageState extends State<EditJadwalPage> {
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
                   const SizedBox(height: 5),
+
+                  //TextField Tanggal
                   TextFormField(
                     controller: _tanggal,
                     readOnly: true,
@@ -83,6 +84,8 @@ class _EditJadwalPageState extends State<EditJadwalPage> {
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
                   const SizedBox(height: 5),
+
+                  //TextField Nama Khatib
                   TextFormField(
                     controller: _khatib,
                     textCapitalization: TextCapitalization.characters,
@@ -105,6 +108,8 @@ class _EditJadwalPageState extends State<EditJadwalPage> {
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
                   const SizedBox(height: 5),
+
+                  //TextField Nama Imam Sholat
                   TextFormField(
                     controller: _imam,
                     textCapitalization: TextCapitalization.characters,
@@ -127,6 +132,8 @@ class _EditJadwalPageState extends State<EditJadwalPage> {
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
                   const SizedBox(height: 5),
+
+                  //TextField Nama Muadzin
                   TextFormField(
                     controller: _muadzin,
                     textCapitalization: TextCapitalization.characters,
@@ -144,6 +151,8 @@ class _EditJadwalPageState extends State<EditJadwalPage> {
                     },
                   ),
                   const SizedBox(height: 50),
+
+                  //Button Simpan
                   GestureDetector(
                     child: Center(
                       child: Container(
@@ -156,7 +165,7 @@ class _EditJadwalPageState extends State<EditJadwalPage> {
                         child: Center(
                           child: Text("SIMPAN",
                               style: GoogleFonts.roboto(
-                                  fontSize: 17, fontWeight: FontWeight.bold)),
+                                  fontSize: 16, fontWeight: FontWeight.bold)),
                         ),
                       ),
                     ),
@@ -172,7 +181,7 @@ class _EditJadwalPageState extends State<EditJadwalPage> {
                             content: Text(
                               "HARAP MENGISIKAN SEMUA DATA !!!",
                               style: GoogleFonts.roboto(
-                                  fontSize: 17, fontWeight: FontWeight.bold),
+                                  fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                             duration: const Duration(seconds: 3),
                           ),
@@ -198,7 +207,7 @@ class _EditJadwalPageState extends State<EditJadwalPage> {
                             content: Text(
                               "JADWAL BERHASIL DISIMPAN",
                               style: GoogleFonts.roboto(
-                                  fontSize: 17, fontWeight: FontWeight.bold),
+                                  fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                             duration: const Duration(seconds: 3),
                           ),

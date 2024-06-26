@@ -41,7 +41,7 @@ class _JadwalJumatState extends State<JadwalJumat> {
                     Text(
                       "Error ${snapshot.error}",
                       style: GoogleFonts.roboto(
-                          fontSize: 15, fontWeight: FontWeight.w600),
+                          fontSize: 16, fontWeight: FontWeight.w600),
                     )
                   ],
                 ),
@@ -65,11 +65,11 @@ class _JadwalJumatState extends State<JadwalJumat> {
                           width: MediaQuery.of(context).size.width / 3.2,
                           child: Text("KHATIB JUM'AT",
                               style: GoogleFonts.roboto(
-                                  fontSize: 15, fontWeight: FontWeight.w500)),
+                                  fontSize: 16, fontWeight: FontWeight.w500)),
                         ),
                         Text(":",
                             style: GoogleFonts.roboto(
-                                fontSize: 15, fontWeight: FontWeight.w500)),
+                                fontSize: 16, fontWeight: FontWeight.w500)),
                         const SizedBox(
                           width: 10,
                         ),
@@ -77,7 +77,7 @@ class _JadwalJumatState extends State<JadwalJumat> {
                           child: Text(
                             "-",
                             style: GoogleFonts.roboto(
-                                fontSize: 15, fontWeight: FontWeight.w500),
+                                fontSize: 16, fontWeight: FontWeight.w500),
                           ),
                         ),
                       ],
@@ -91,11 +91,11 @@ class _JadwalJumatState extends State<JadwalJumat> {
                           width: MediaQuery.of(context).size.width / 3.2,
                           child: Text("IMAM JUM'AT",
                               style: GoogleFonts.roboto(
-                                  fontSize: 15, fontWeight: FontWeight.w600)),
+                                  fontSize: 16, fontWeight: FontWeight.w600)),
                         ),
                         Text(":",
                             style: GoogleFonts.roboto(
-                                fontSize: 15, fontWeight: FontWeight.w600)),
+                                fontSize: 16, fontWeight: FontWeight.w600)),
                         const SizedBox(
                           width: 10,
                         ),
@@ -103,7 +103,7 @@ class _JadwalJumatState extends State<JadwalJumat> {
                           child: Text(
                             "-",
                             style: GoogleFonts.roboto(
-                                fontSize: 15, fontWeight: FontWeight.w600),
+                                fontSize: 16, fontWeight: FontWeight.w600),
                           ),
                         ),
                       ],
@@ -117,11 +117,11 @@ class _JadwalJumatState extends State<JadwalJumat> {
                           width: MediaQuery.of(context).size.width / 3.2,
                           child: Text("MUADZIN",
                               style: GoogleFonts.roboto(
-                                  fontSize: 15, fontWeight: FontWeight.w600)),
+                                  fontSize: 16, fontWeight: FontWeight.w600)),
                         ),
                         Text(":",
                             style: GoogleFonts.roboto(
-                                fontSize: 15, fontWeight: FontWeight.w600)),
+                                fontSize: 16, fontWeight: FontWeight.w600)),
                         const SizedBox(
                           width: 10,
                         ),
@@ -129,7 +129,7 @@ class _JadwalJumatState extends State<JadwalJumat> {
                           child: Text(
                             "-",
                             style: GoogleFonts.roboto(
-                                fontSize: 15, fontWeight: FontWeight.w600),
+                                fontSize: 16, fontWeight: FontWeight.w600),
                           ),
                         ),
                       ],

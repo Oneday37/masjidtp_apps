@@ -8,7 +8,7 @@ class MasjidtpBloc extends Bloc<MasjidtpEvent, MasjidtpState> {
   MasjidtpBloc() : super(MasjidtpInitial()) {
     on<OnMasjidTpEventCalled>((event, emit) async {
       emit(MasjidtpLoading());
-      await Future.delayed(Duration(seconds: 5));
+      await Future.delayed(const Duration(seconds: 5));
       emit(MasjidtpLoaded());
     });
   }

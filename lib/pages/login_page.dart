@@ -17,38 +17,38 @@ class _LoginPageState extends State<LoginPage> {
   final authService = AuthService();
   var isLoader = false;
 
-  Future _submitForm() async {
-    if (_formKey.currentState!.validate()) {
-      setState(() {
-        isLoader = false;
-      });
-    }
-    try {
-      await authService.signInWithEmailAndPassword(
-          emailController.text, passController.text);
-    } catch (e) {
-      showDialog(
-          context: context,
-          builder: (context) {
-            return CupertinoAlertDialog(
-              title: Text(
-                "Login Failed",
-                style: GoogleFonts.oswald(
-                    fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              content: const Column(
-                children: [
-                  Divider(
-                    color: Colors.black,
-                  ),
-                  Text(
-                      "Silahkan Masukkan Data E-mail dan Password dengan Benar"),
-                ],
-              ),
-            );
-          });
-    }
+Future _submitForm() async {
+  if (_formKey.currentState!.validate()) {
+    setState(() {
+      isLoader = false;
+    });
   }
+  try {
+    await authService.signInWithEmailAndPassword(
+        emailController.text, passController.text);
+  } catch (e) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return CupertinoAlertDialog(
+            title: Text(
+              "Login Failed",
+              style: GoogleFonts.oswald(
+                  fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            content: const Column(
+              children: [
+                Divider(
+                  color: Colors.black,
+                ),
+                Text(
+                    "Silahkan Masukkan Data E-mail dan Password dengan Benar"),
+              ],
+            ),
+          );
+        });
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +73,8 @@ class _LoginPageState extends State<LoginPage> {
                 "ADMIN",
                 style: GoogleFonts.poppins(fontSize: 20),
               ),
+
+              //TextField Email
               Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 15),
                 child: TextFormField(
@@ -96,6 +98,8 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
               ),
+
+              //TextField Password
               TextFormField(
                 controller: passController,
                 obscureText: true,
@@ -115,6 +119,8 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 20,
               ),
+
+              //Button Login
               GestureDetector(
                 child: Container(
                     height: 50,

@@ -3,14 +3,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class ShowDataKas extends StatefulWidget {
+  String periode;
   String sisaKas;
   String pemasukan;
   String pengeluaran;
 
-  ShowDataKas(
-      {required this.sisaKas,
-      required this.pemasukan,
-      required this.pengeluaran});
+  ShowDataKas({
+    required this.periode,
+    required this.sisaKas,
+    required this.pemasukan,
+    required this.pengeluaran,
+  });
 
   @override
   State<ShowDataKas> createState() => _ShowDataKasState();
@@ -27,114 +30,131 @@ class _ShowDataKasState extends State<ShowDataKas> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-        height: 130,
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            Stack(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Periode: ${widget.periode}",
+          style: GoogleFonts.oswald(fontSize: 20, fontWeight: FontWeight.w500),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        SizedBox(
+            height: 130,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
               children: [
-                Container(
-                  width: 250,
-                  decoration: BoxDecoration(
-                      color: Colors.blue[600]!.withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(15)),
-                ),
-                Positioned(
-                  right: 0,
-                  child: Opacity(
-                    opacity: 0.15,
-                    child: Image.asset(
-                      "assets/rupiah.png",
-                      fit: BoxFit.cover,
-                      width: 150,
+                //Sisa Kas Masjid
+                Stack(
+                  children: [
+                    Container(
+                      width: 250,
+                      decoration: BoxDecoration(
+                          color: Colors.blue[600]!.withOpacity(0.8),
+                          borderRadius: BorderRadius.circular(15)),
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 10),
-                  child: Text("Sisa Kas Masjid",
-                      style: GoogleFonts.roboto(
-                          fontSize: 18, fontWeight: FontWeight.w600)),
-                ),
-                Positioned(
-                  bottom: 10,
-                  right: 10,
-                  child: Text(formatCurrency(widget.sisaKas),
-                      style: GoogleFonts.roboto(
-                          fontSize: 18, fontWeight: FontWeight.w600)),
-                ),
-              ],
-            ),
-            const SizedBox(width: 10),
-            Stack(
-              children: [
-                Container(
-                  width: 250,
-                  decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 0, 255, 94),
-                      borderRadius: BorderRadius.circular(15)),
-                ),
-                Positioned(
-                  top: 10,
-                  right: -30,
-                  child: Opacity(
-                    opacity: 0.09,
-                    child: Image.asset(
-                      "assets/income_money.jpg",
-                      fit: BoxFit.cover,
-                      width: 200,
+                    Positioned(
+                      right: 0,
+                      child: Opacity(
+                        opacity: 0.09,
+                        child: Image.asset(
+                          "assets/rupiah.png",
+                          fit: BoxFit.cover,
+                          width: 150,
+                        ),
+                      ),
                     ),
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, left: 10),
+                      child: Text("Sisa Kas Masjid",
+                          style: GoogleFonts.roboto(
+                              fontSize: 18, fontWeight: FontWeight.w600)),
+                    ),
+                    Positioned(
+                      bottom: 10,
+                      right: 10,
+                      child: Text(formatCurrency(widget.sisaKas),
+                          style: GoogleFonts.roboto(
+                              fontSize: 18, fontWeight: FontWeight.w600)),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 10),
-                  child: Text("Pemasukan Kas Masjid",
-                      style: GoogleFonts.roboto(
-                          fontSize: 18, fontWeight: FontWeight.w600)),
+                const SizedBox(width: 10),
+
+                //Pemasukan Kas Masjid
+                Stack(
+                  children: [
+                    Container(
+                      width: 250,
+                      decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 0, 255, 94),
+                          borderRadius: BorderRadius.circular(15)),
+                    ),
+                    Positioned(
+                      top: 10,
+                      right: -30,
+                      child: Opacity(
+                        opacity: 0.09,
+                        child: Image.asset(
+                          "assets/income_money.jpg",
+                          fit: BoxFit.cover,
+                          width: 200,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, left: 10),
+                      child: Text("Pemasukan Kas Masjid",
+                          style: GoogleFonts.roboto(
+                              fontSize: 18, fontWeight: FontWeight.w600)),
+                    ),
+                    Positioned(
+                      bottom: 10,
+                      right: 10,
+                      child: Text(formatCurrency(widget.pemasukan),
+                          style: GoogleFonts.roboto(
+                              fontSize: 18, fontWeight: FontWeight.w600)),
+                    ),
+                  ],
                 ),
-                Positioned(
-                  bottom: 10,
-                  right: 10,
-                  child: Text(formatCurrency(widget.pemasukan),
-                      style: GoogleFonts.roboto(
-                          fontSize: 18, fontWeight: FontWeight.w600)),
+                const SizedBox(width: 10),
+
+                //Pengeluaran Kas Masjid
+                Stack(
+                  children: [
+                    Container(
+                      width: 250,
+                      decoration: BoxDecoration(
+                          color: Colors.red[600]!.withOpacity(0.9),
+                          borderRadius: BorderRadius.circular(15)),
+                    ),
+                    Positioned(
+                      right: -5,
+                      child: Image.asset(
+                        "assets/pengeluaran.png",
+                        fit: BoxFit.cover,
+                        width: 150,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, left: 10),
+                      child: Text("Pengeluaran Kas Masjid",
+                          style: GoogleFonts.roboto(
+                              fontSize: 18, fontWeight: FontWeight.w600)),
+                    ),
+                    Positioned(
+                      bottom: 10,
+                      right: 10,
+                      child: Text(formatCurrency(widget.pengeluaran),
+                          style: GoogleFonts.roboto(
+                              fontSize: 18, fontWeight: FontWeight.w600)),
+                    ),
+                  ],
                 ),
               ],
-            ),
-            const SizedBox(width: 10),
-            Stack(
-              children: [
-                Container(
-                  width: 250,
-                  decoration: BoxDecoration(
-                      color: Colors.red[600]!.withOpacity(0.9),
-                      borderRadius: BorderRadius.circular(15)),
-                ),
-                Positioned(
-                  right: -5,
-                  child: Image.asset(
-                    "assets/pengeluaran.png",
-                    fit: BoxFit.cover,
-                    width: 150,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 10),
-                  child: Text("Pengeluaran Kas Masjid",
-                      style: GoogleFonts.roboto(
-                          fontSize: 18, fontWeight: FontWeight.w600)),
-                ),
-                Positioned(
-                  bottom: 10,
-                  right: 10,
-                  child: Text(formatCurrency(widget.pengeluaran),
-                      style: GoogleFonts.roboto(
-                          fontSize: 20, fontWeight: FontWeight.w600)),
-                ),
-              ],
-            ),
-          ],
-        ));
+            )),
+      ],
+    );
   }
 }

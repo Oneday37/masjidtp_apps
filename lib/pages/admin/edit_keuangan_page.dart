@@ -72,6 +72,8 @@ class _EditKeuanganPageState extends State<EditKeuanganPage> {
                 const SizedBox(
                   height: 5,
                 ),
+
+                //TextField Tanggal
                 TextFormField(
                   controller: _tanggal,
                   readOnly: true,
@@ -102,6 +104,8 @@ class _EditKeuanganPageState extends State<EditKeuanganPage> {
                 const SizedBox(
                   height: 5,
                 ),
+
+                //TextField Sisa Kas
                 TextFormField(
                   controller: _sisaKas,
                   keyboardType: TextInputType.number,
@@ -129,6 +133,8 @@ class _EditKeuanganPageState extends State<EditKeuanganPage> {
                 const SizedBox(
                   height: 5,
                 ),
+
+                //TextField Pemasukan Kas
                 TextFormField(
                   controller: _pemasukan,
                   keyboardType: TextInputType.number,
@@ -156,6 +162,8 @@ class _EditKeuanganPageState extends State<EditKeuanganPage> {
                 const SizedBox(
                   height: 5,
                 ),
+
+                //TextField Pengeluaran Kas
                 TextFormField(
                   controller: _pengeluaran,
                   keyboardType: TextInputType.number,
@@ -176,6 +184,8 @@ class _EditKeuanganPageState extends State<EditKeuanganPage> {
                   },
                 ),
                 const SizedBox(height: 50),
+
+                //Button Simpan
                 GestureDetector(
                   child: Center(
                     child: Container(
@@ -186,9 +196,9 @@ class _EditKeuanganPageState extends State<EditKeuanganPage> {
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: Center(
-                        child: Text("UPDATE",
+                        child: Text("SIMPAN",
                             style: GoogleFonts.roboto(
-                                fontSize: 17, fontWeight: FontWeight.bold)),
+                                fontSize: 16, fontWeight: FontWeight.bold)),
                       ),
                     ),
                   ),
@@ -204,14 +214,14 @@ class _EditKeuanganPageState extends State<EditKeuanganPage> {
                           content: Text(
                             "HARAP MENGISIKAN SEMUA DATA !!!",
                             style: GoogleFonts.roboto(
-                                fontSize: 17, fontWeight: FontWeight.bold),
+                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           duration: const Duration(seconds: 3),
                         ),
                       );
                     } else {
                       collectionRefKas.add({
-                        'periodekas': _tanggal.text,
+                        'periodeKas': _tanggal.text,
                         'sisaKas': int.parse(_sisaKas.text.replaceAll('.', '')),
                         'pemasukanKas':
                             int.parse(_pemasukan.text.replaceAll('.', '')),
@@ -232,7 +242,7 @@ class _EditKeuanganPageState extends State<EditKeuanganPage> {
                           content: Text(
                             "DATA KEUANGAN BERHASIL DISIMPAN",
                             style: GoogleFonts.roboto(
-                                fontSize: 17, fontWeight: FontWeight.bold),
+                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           duration: const Duration(seconds: 3),
                         ),

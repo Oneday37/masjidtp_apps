@@ -9,6 +9,7 @@ class DetailKegiatanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           getData['namaKegiatan'],
@@ -18,11 +19,12 @@ class DetailKegiatanPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Image.network(
-            getData['dokumentasiKegiatan'],
-            height: MediaQuery.of(context).size.height / 3,
-            width: double.infinity,
-            fit: BoxFit.cover,
+          AspectRatio(
+            aspectRatio: 16 / 9,
+            child: Image.network(
+              getData['dokumentasiKegiatan'],
+              fit: BoxFit.cover,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),

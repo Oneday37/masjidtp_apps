@@ -33,6 +33,14 @@ class OptionEditPage extends StatelessWidget {
                   } else if (snapshot.connectionState ==
                       ConnectionState.waiting) {
                     return Container();
+                  } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                    return Center(
+                      child: Text(
+                        "Belum ada data kegiatan yang ditambahkan",
+                        style: GoogleFonts.roboto(
+                            fontSize: 16, fontWeight: FontWeight.w600),
+                      ),
+                    );
                   } else {
                     return Column(
                       children: snapshot.data!.docs.map((e) {

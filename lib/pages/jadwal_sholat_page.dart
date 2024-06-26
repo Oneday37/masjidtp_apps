@@ -15,6 +15,7 @@ class JadwalSholat extends StatefulWidget {
 class _JadwalSholatState extends State<JadwalSholat> {
   @override
   Widget build(BuildContext context) {
+    //Perhitungan Jadwal SHolat
     final coordinates = Coordinates(-6.3142194, 106.6541554);
     final params = CalculationMethod.singapore.getParameters();
     params.madhab = Madhab.hanafi;
@@ -27,14 +28,17 @@ class _JadwalSholatState extends State<JadwalSholat> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              //Sistem Penanggalan Islam / Kalender Hijriah
               Padding(
                 padding: const EdgeInsets.only(top: 5, left: 10),
                 child: Text(
                   HijriCalendar.now().toFormat("dd MMMM yyyy"),
                   style: GoogleFonts.openSansCondensed(
-                      fontSize: 26, fontWeight: FontWeight.bold),
+                      fontSize: 25, fontWeight: FontWeight.bold),
                 ),
               ),
+
+              //Sistem Penanggalan Global
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Text(
@@ -47,16 +51,15 @@ class _JadwalSholatState extends State<JadwalSholat> {
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Stack(
                   children: [
-                    SizedBox(
-                      height: 200,
-                      width: MediaQuery.of(context).size.width,
+                    AspectRatio(
+                      aspectRatio: 16 / 9,
                       child: Image.asset(
                         "assets/masjid.jpg",
                         fit: BoxFit.cover,
                       ),
                     ),
 
-                    //LOKASI
+                    //Lokasi Masjid
                     Positioned(
                       bottom: 5,
                       left: 10,
@@ -101,8 +104,7 @@ class _JadwalSholatState extends State<JadwalSholat> {
                       ),
                     ),
 
-                    //JAM
-
+                    //Real Time Clock
                     Positioned(
                       right: 10,
                       child: Stack(
@@ -126,6 +128,8 @@ class _JadwalSholatState extends State<JadwalSholat> {
                   ],
                 ),
               ),
+
+              //Jadwal Sholat 5 Waktu
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Column(
@@ -135,10 +139,10 @@ class _JadwalSholatState extends State<JadwalSholat> {
                       children: [
                         Text(
                           "Shubuh",
-                          style: GoogleFonts.roboto(fontSize: 20),
+                          style: GoogleFonts.roboto(fontSize: 18),
                         ),
                         Text(DateFormat.Hm().format(prayerTimes.fajr),
-                            style: GoogleFonts.roboto(fontSize: 20)),
+                            style: GoogleFonts.roboto(fontSize: 18)),
                       ],
                     ),
                     const Divider(
@@ -150,10 +154,10 @@ class _JadwalSholatState extends State<JadwalSholat> {
                       children: [
                         Text(
                           "Dhuhr",
-                          style: GoogleFonts.roboto(fontSize: 20),
+                          style: GoogleFonts.roboto(fontSize: 18),
                         ),
                         Text(DateFormat.Hm().format(prayerTimes.dhuhr),
-                            style: GoogleFonts.roboto(fontSize: 20)),
+                            style: GoogleFonts.roboto(fontSize: 18)),
                       ],
                     ),
                     const Divider(
@@ -165,10 +169,10 @@ class _JadwalSholatState extends State<JadwalSholat> {
                       children: [
                         Text(
                           "Asr",
-                          style: GoogleFonts.roboto(fontSize: 20),
+                          style: GoogleFonts.roboto(fontSize: 18),
                         ),
                         Text(DateFormat.Hm().format(prayerTimes.asr),
-                            style: GoogleFonts.roboto(fontSize: 20)),
+                            style: GoogleFonts.roboto(fontSize: 18)),
                       ],
                     ),
                     const Divider(
@@ -180,10 +184,10 @@ class _JadwalSholatState extends State<JadwalSholat> {
                       children: [
                         Text(
                           "Maghrib",
-                          style: GoogleFonts.roboto(fontSize: 20),
+                          style: GoogleFonts.roboto(fontSize: 18),
                         ),
                         Text(DateFormat.Hm().format(prayerTimes.maghrib),
-                            style: GoogleFonts.roboto(fontSize: 20)),
+                            style: GoogleFonts.roboto(fontSize: 18)),
                       ],
                     ),
                     const Divider(
@@ -195,10 +199,10 @@ class _JadwalSholatState extends State<JadwalSholat> {
                       children: [
                         Text(
                           "Isya",
-                          style: GoogleFonts.roboto(fontSize: 20),
+                          style: GoogleFonts.roboto(fontSize: 18),
                         ),
                         Text(DateFormat.Hm().format(prayerTimes.isha),
-                            style: GoogleFonts.roboto(fontSize: 20)),
+                            style: GoogleFonts.roboto(fontSize: 18)),
                       ],
                     ),
                   ],

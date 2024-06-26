@@ -32,11 +32,13 @@ class LoginVerif extends StatelessWidget {
                 ),
                 Text(
                   "PILIH AKUN",
-                  style: GoogleFonts.oswald(fontSize: 23),
+                  style: GoogleFonts.oswald(fontSize: 25),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
+
+                //Button Role Admin
                 GestureDetector(
                   child: Container(
                       height: 50,
@@ -58,6 +60,8 @@ class LoginVerif extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
+
+                //Button Role Jamaah
                 GestureDetector(
                   child: Container(
                       height: 50,

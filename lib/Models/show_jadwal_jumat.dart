@@ -37,11 +37,11 @@ class _ShowDataState extends State<ShowDataJadwal> {
                 width: MediaQuery.of(context).size.width / 3.2,
                 child: Text("KHATIB JUM'AT",
                     style: GoogleFonts.roboto(
-                        fontSize: 15, fontWeight: FontWeight.w600)),
+                        fontSize: 16, fontWeight: FontWeight.w600)),
               ),
               Text(":",
                   style: GoogleFonts.roboto(
-                      fontSize: 15, fontWeight: FontWeight.w600)),
+                      fontSize: 16, fontWeight: FontWeight.w600)),
               const SizedBox(
                 width: 10,
               ),
@@ -49,7 +49,7 @@ class _ShowDataState extends State<ShowDataJadwal> {
                 child: Text(
                   widget.khatib,
                   style: GoogleFonts.roboto(
-                      fontSize: 15, fontWeight: FontWeight.w600),
+                      fontSize: 16, fontWeight: FontWeight.w600),
                 ),
               )
             ],
@@ -63,11 +63,11 @@ class _ShowDataState extends State<ShowDataJadwal> {
                 width: MediaQuery.of(context).size.width / 3.2,
                 child: Text("IMAM JUM'AT",
                     style: GoogleFonts.roboto(
-                        fontSize: 15, fontWeight: FontWeight.w600)),
+                        fontSize: 16, fontWeight: FontWeight.w600)),
               ),
               Text(":",
                   style: GoogleFonts.roboto(
-                      fontSize: 15, fontWeight: FontWeight.w600)),
+                      fontSize: 16, fontWeight: FontWeight.w600)),
               const SizedBox(
                 width: 10,
               ),
@@ -75,7 +75,7 @@ class _ShowDataState extends State<ShowDataJadwal> {
                 child: Text(
                   widget.imam,
                   style: GoogleFonts.roboto(
-                      fontSize: 15, fontWeight: FontWeight.w600),
+                      fontSize: 16, fontWeight: FontWeight.w600),
                 ),
               )
             ],
@@ -89,18 +89,18 @@ class _ShowDataState extends State<ShowDataJadwal> {
                 width: MediaQuery.of(context).size.width / 3.2,
                 child: Text("MUADZIN",
                     style: GoogleFonts.roboto(
-                        fontSize: 15, fontWeight: FontWeight.w600)),
+                        fontSize: 16, fontWeight: FontWeight.w600)),
               ),
               Text(":",
                   style: GoogleFonts.roboto(
-                      fontSize: 15, fontWeight: FontWeight.w600)),
+                      fontSize: 16, fontWeight: FontWeight.w600)),
               const SizedBox(
                 width: 10,
               ),
               Expanded(
                 child: Text(widget.muadzin,
                     style: GoogleFonts.roboto(
-                        fontSize: 15, fontWeight: FontWeight.w600)),
+                        fontSize: 16, fontWeight: FontWeight.w600)),
               )
             ],
           ),

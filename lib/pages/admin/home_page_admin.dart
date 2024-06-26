@@ -6,7 +6,7 @@ import 'package:hijri/hijri_calendar.dart';
 import 'package:intl/intl.dart';
 import 'package:penulisan_ilmiah_application/widgets/kegiatan_masjid.dart';
 import 'package:penulisan_ilmiah_application/widgets/finance.dart';
-import 'package:penulisan_ilmiah_application/widgets/hadist_of_the_day.dart';
+import 'package:penulisan_ilmiah_application/widgets/kutipan_hadis.dart';
 import 'package:penulisan_ilmiah_application/widgets/jadwal_jumat.dart';
 import '../jadwal_sholat_page.dart';
 import '../quran/quran_page.dart';
@@ -31,7 +31,7 @@ class _HomePageAdminState extends State<HomePageAdmin> {
           Text(
             HijriCalendar.now().toFormat("dd MMMM yyyy"),
             style: GoogleFonts.openSansCondensed(
-                fontSize: 26, fontWeight: FontWeight.bold),
+                fontSize: 25, fontWeight: FontWeight.bold),
           ),
           //Sistem penanggalan global
           Text(

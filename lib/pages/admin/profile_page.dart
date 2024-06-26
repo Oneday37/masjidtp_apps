@@ -34,22 +34,36 @@ class ProfilePage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
+
+            //Menu Kontrol Kegiatan Masjid
             listMenu(Icons.event_note, "Kegiatan Masjid",
                 const OptionKegiatanPage()),
             const Divider(
               color: Colors.black,
             ),
+
+            //Menu Kontrol Keuangan Masjid
             listMenu(Icons.wallet, "Keuangan Masjid", const EditKeuanganPage()),
             const Divider(
               color: Colors.black,
             ),
+
+            //Menu Kontrol Jadwal Jum'at
             listMenu(
                 Icons.calendar_today, "Jadwal Jum'at", const EditJadwalPage()),
             const Divider(
               color: Colors.black,
             ),
+            const SizedBox(
+              height: 30,
+            ),
+
+            //Menu Keluar Dari Akun
             TextButton.icon(
-                label: const Text("Logout"),
+                label: Text(
+                  "Logout",
+                  style: GoogleFonts.roboto(fontSize: 18),
+                ),
                 icon: const Icon(Icons.logout_rounded),
                 onPressed: () async {
                   await AuthService().signUserOut();

@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-
 import '../../services/firebase/firestore.dart';
 
 class EditKegiatanPage extends StatefulWidget {
@@ -48,6 +47,7 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
     Map<String, dynamic> data =
         widget.documentSnapshot.data() as Map<String, dynamic>;
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Edit Kegiatan Masjid",
             style: GoogleFonts.oswald(fontSize: 27)),
@@ -67,6 +67,8 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
                   const SizedBox(height: 5),
+
+                  //TextField Tanggal
                   TextFormField(
                     controller: _tanggal,
                     readOnly: true,
@@ -82,7 +84,7 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "HARAP MENGISIKAN TANGGAL PERIODE !";
+                        return "HARAP MENGISIKAN TANGGAL KEGIATAN !";
                       }
                       return null;
                     },
@@ -96,6 +98,8 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
                   const SizedBox(height: 5),
+
+                  //TextField Nama Kegiatan
                   TextFormField(
                     controller: _judul,
                     decoration: InputDecoration(
@@ -117,6 +121,8 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
                   const SizedBox(height: 5),
+
+                  //TextField Deskripsi Kegiatan
                   TextFormField(
                     controller: _deskripsi,
                     decoration: InputDecoration(
@@ -140,20 +146,24 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
                     "GAMBAR KEGIATAN",
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
+
+                  //Input Gambar
                   GestureDetector(
                     child: Center(
                       child: image == null
-                          ? Image.network(
-                              data['dokumentasiKegiatan'],
-                              height: 250,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
+                          ? AspectRatio(
+                              aspectRatio: 16 / 9,
+                              child: Image.network(
+                                data['dokumentasiKegiatan'],
+                                fit: BoxFit.cover,
+                              ),
                             )
-                          : Image.file(
-                              File(image!.path),
-                              height: 250,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
+                          : AspectRatio(
+                              aspectRatio: 16 / 9,
+                              child: Image.file(
+                                File(image!.path),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                     ),
                     onTap: () async {
@@ -166,6 +176,8 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
                       }
                     },
                   ),
+
+                  //Button Update
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 30),
                     child: GestureDetector(
@@ -180,7 +192,7 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
                           child: Center(
                             child: Text("UPDATE",
                                 style: GoogleFonts.roboto(
-                                    fontSize: 17, fontWeight: FontWeight.bold)),
+                                    fontSize: 16, fontWeight: FontWeight.bold)),
                           ),
                         ),
                       ),
@@ -215,7 +227,7 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
                               content: Text(
                                 "KEGIATAN BERHASIL DIUPDATE",
                                 style: GoogleFonts.roboto(
-                                    fontSize: 17, fontWeight: FontWeight.bold),
+                                    fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               duration: const Duration(seconds: 3),
                             ),
@@ -227,7 +239,7 @@ class _EditKegiatanPageState extends State<EditKegiatanPage> {
                               content: Text(
                                 "HARAP MENGISIKAN SEMUA DATA !!!",
                                 style: GoogleFonts.roboto(
-                                    fontSize: 17, fontWeight: FontWeight.bold),
+                                    fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               duration: const Duration(seconds: 3),
                             ),

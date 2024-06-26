@@ -48,7 +48,7 @@ class _QuranPageState extends State<QuranPage> {
                         ListTile(
                           leading: Text(
                             "${getDataSurah.nomor}",
-                            style: GoogleFonts.roboto(fontSize: 16),
+                            style: GoogleFonts.roboto(fontSize: 18),
                           ),
                           title: Text(getDataSurah.namaLatin,
                               style: GoogleFonts.openSansCondensed(

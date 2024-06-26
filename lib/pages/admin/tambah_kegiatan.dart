@@ -36,7 +36,7 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Tambah Jadwal", style: GoogleFonts.oswald(fontSize: 27)),
+        title: Text("Tambah Kegiatan", style: GoogleFonts.oswald(fontSize: 27)),
         centerTitle: true,
       ),
       body: Form(
@@ -53,6 +53,8 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
                   const SizedBox(height: 5),
+
+                  //TextField Tanggal
                   TextFormField(
                     controller: _tanggal,
                     readOnly: true,
@@ -68,7 +70,7 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "HARAP MENGISIKAN TANGGAL PERIODE !";
+                        return "HARAP MENGISIKAN TANGGAL KEGIATAN !";
                       }
                       return null;
                     },
@@ -82,6 +84,8 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
                   const SizedBox(height: 5),
+
+                  //TextField Nama Kegiatan
                   TextFormField(
                     controller: _judul,
                     decoration: InputDecoration(
@@ -103,6 +107,8 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
                   const SizedBox(height: 5),
+
+                  //TextField Deskripsi Kegiatan
                   TextFormField(
                     controller: _deskripsi,
                     decoration: InputDecoration(
@@ -126,6 +132,8 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
                     "GAMBAR KEGIATAN",
                     style: GoogleFonts.roboto(fontSize: 18),
                   ),
+
+                  //Input Gambar
                   GestureDetector(
                     child: Center(
                       child: image == null
@@ -135,11 +143,12 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
                               width: 250,
                               fit: BoxFit.cover,
                             )
-                          : Image.file(
-                              File(image!.path),
-                              height: 250,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
+                          : AspectRatio(
+                              aspectRatio: 16 / 9,
+                              child: Image.file(
+                                File(image!.path),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                     ),
                     onTap: () async {
@@ -151,6 +160,8 @@ class _TambahJadwalPageState extends State<TambahJadwalPage> {
                       }
                     },
                   ),
+
+                  //Button SImpan
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 30),
                     child: GestureDetector(

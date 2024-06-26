@@ -36,18 +36,20 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
             future: fetchDetailSurah(widget.data.nomor),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Container();
+                return Center(
+                  child: CircularProgressIndicator(color: Colors.green[600]),
+                );
               } else if (snapshot.hasError) {
                 return Center(child: Text("Error: ${snapshot.error}"));
               } else {
                 final data = snapshot.data;
                 if (widget.data.nomor == 1 || widget.data.nomor == 9) {
-                  return isiSurah(data);
+                  return ListView(children: [isiSurah(data)]);
                 } else {
                   return ListView(
                     children: [
                       const Center(
-                          child: Text(basmala, style: TextStyle(fontSize: 30))),
+                          child: Text(basmala, style: TextStyle(fontSize: 35))),
                       const SizedBox(height: 20),
                       isiSurah(data),
                     ],
@@ -66,6 +68,7 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
         itemCount: data!.jumlahAyat,
         itemBuilder: (context, index) {
           final getDetailSurah = data.ayat[index];
+          print(getDetailSurah.nomorAyat);
           return Column(
             children: [
               Padding(
@@ -75,13 +78,13 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
                   child: Text(
                     getVerse(data.nomor, getDetailSurah.nomorAyat,
                         verseEndSymbol: true),
-                    style: GoogleFonts.roboto(fontSize: 20),
+                    style: GoogleFonts.roboto(fontSize: 25),
                     textAlign: TextAlign.end,
                   ),
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 17,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -89,12 +92,15 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     getDetailSurah.teksIndonesia,
-                    style: GoogleFonts.roboto(fontSize: 15),
+                    style: GoogleFonts.roboto(fontSize: 16),
                     textAlign: TextAlign.justify,
                   ),
                 ),
               ),
-              const Divider()
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 7),
+                child: Divider(),
+              )
             ],
           );
         });

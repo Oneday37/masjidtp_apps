@@ -54,13 +54,13 @@ class _EventState extends State<EventSection> {
                     return Text(
                       "Error ${snapshot.error}",
                       style: GoogleFonts.roboto(
-                          fontSize: 15, fontWeight: FontWeight.w600),
+                          fontSize: 16, fontWeight: FontWeight.w600),
                     );
                   } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
                     return Text(
                       "Belum ada kegiatan yang ditambahkan",
                       style: GoogleFonts.roboto(
-                          fontSize: 15, fontWeight: FontWeight.w600),
+                          fontSize: 16, fontWeight: FontWeight.w600),
                     );
                   } else {
                     return Column(

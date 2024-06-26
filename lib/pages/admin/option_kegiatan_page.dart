@@ -23,9 +23,11 @@ class _OptionKegiatanPageState extends State<OptionKegiatanPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          //Menu Edit Kegiatan Masjid
           listItem("Edit Kegiatan Masjid", const OptionEditPage()),
-          // ignore: prefer_const_constructors
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
+
+          // Menu Tambah Kegiatan Masjid
           listItem("Tambah Kegiatan Masjid", const TambahJadwalPage())
         ],
       ),
