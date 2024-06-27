@@ -13,8 +13,10 @@ class AuthGate extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
+              //Jika admin belum logout
               return const HomePageAdmin();
             } else {
+              //Jika admin telah logout
               return const LoginPage();
             }
           }),

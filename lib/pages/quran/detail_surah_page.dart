@@ -68,7 +68,6 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
         itemCount: data!.jumlahAyat,
         itemBuilder: (context, index) {
           final getDetailSurah = data.ayat[index];
-          print(getDetailSurah.nomorAyat);
           return Column(
             children: [
               Padding(
@@ -78,7 +77,7 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
                   child: Text(
                     getVerse(data.nomor, getDetailSurah.nomorAyat,
                         verseEndSymbol: true),
-                    style: GoogleFonts.roboto(fontSize: 25),
+                    style: const TextStyle(fontSize: 25),
                     textAlign: TextAlign.end,
                   ),
                 ),

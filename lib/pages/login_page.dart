@@ -17,38 +17,38 @@ class _LoginPageState extends State<LoginPage> {
   final authService = AuthService();
   var isLoader = false;
 
-Future _submitForm() async {
-  if (_formKey.currentState!.validate()) {
-    setState(() {
-      isLoader = false;
-    });
+  Future _submitForm() async {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        isLoader = false;
+      });
+    }
+    try {
+      await authService.signInWithEmailAndPassword(
+          emailController.text, passController.text);
+    } catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return CupertinoAlertDialog(
+              title: Text(
+                "Login Failed",
+                style: GoogleFonts.oswald(
+                    fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              content: const Column(
+                children: [
+                  Divider(
+                    color: Colors.black,
+                  ),
+                  Text(
+                      "Silahkan Masukkan Data E-mail dan Password dengan Benar"),
+                ],
+              ),
+            );
+          });
+    }
   }
-  try {
-    await authService.signInWithEmailAndPassword(
-        emailController.text, passController.text);
-  } catch (e) {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return CupertinoAlertDialog(
-            title: Text(
-              "Login Failed",
-              style: GoogleFonts.oswald(
-                  fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            content: const Column(
-              children: [
-                Divider(
-                  color: Colors.black,
-                ),
-                Text(
-                    "Silahkan Masukkan Data E-mail dan Password dengan Benar"),
-              ],
-            ),
-          );
-        });
-  }
-}
 
   @override
   Widget build(BuildContext context) {

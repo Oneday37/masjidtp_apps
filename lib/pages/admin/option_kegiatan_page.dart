@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:penulisan_ilmiah_application/pages/admin/option_edit_kegiatan_page.dart';
-import 'tambah_kegiatan.dart';
+import 'tambah_kegiatan_page.dart';
 
 class OptionKegiatanPage extends StatefulWidget {
   const OptionKegiatanPage({super.key});
@@ -28,7 +28,7 @@ class _OptionKegiatanPageState extends State<OptionKegiatanPage> {
           const SizedBox(height: 5),
 
           // Menu Tambah Kegiatan Masjid
-          listItem("Tambah Kegiatan Masjid", const TambahJadwalPage())
+          listItem("Tambah Kegiatan Masjid", const TambahKegiatanPage())
         ],
       ),
     );

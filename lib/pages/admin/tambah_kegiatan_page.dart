@@ -8,14 +8,14 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:penulisan_ilmiah_application/services/firebase/firestore.dart';
 
-class TambahJadwalPage extends StatefulWidget {
-  const TambahJadwalPage({super.key});
+class TambahKegiatanPage extends StatefulWidget {
+  const TambahKegiatanPage({super.key});
 
   @override
-  State<TambahJadwalPage> createState() => _TambahJadwalPageState();
+  State<TambahKegiatanPage> createState() => _TambahKegiatanPageState();
 }
 
-class _TambahJadwalPageState extends State<TambahJadwalPage> {
+class _TambahKegiatanPageState extends State<TambahKegiatanPage> {
   TextEditingController _tanggal = TextEditingController();
   TextEditingController _judul = TextEditingController();
   TextEditingController _deskripsi = TextEditingController();
