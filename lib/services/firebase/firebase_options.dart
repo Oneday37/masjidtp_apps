@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,9 +28,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -40,47 +49,20 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAFM5gKyeFaJf_CnnHrwrBwIEh6qkQ96qk',
-    appId: '1:347152255221:web:d1c6f435fa1cc4a4f91dbc',
-    messagingSenderId: '347152255221',
-    projectId: 'pichoy',
-    authDomain: 'pichoy.firebaseapp.com',
-    storageBucket: 'pichoy.appspot.com',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB3JEifYKCtX0n8gvAtu7dObA2qfvg9iSY',
-    appId: '1:347152255221:android:63b6898b94690288f91dbc',
-    messagingSenderId: '347152255221',
-    projectId: 'pichoy',
-    storageBucket: 'pichoy.appspot.com',
+    apiKey: 'AIzaSyCr54Cug3-H3iSn7UCk1w79iPrcPdr2BwI',
+    appId: '1:840751026704:android:067ae58188e51c41293095',
+    messagingSenderId: '840751026704',
+    projectId: 'masjidtamanpuspa-c7698',
+    storageBucket: 'masjidtamanpuspa-c7698.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD2vjHGD1-g3qKE7jRWtEviyK_MorYWbds',
-    appId: '1:347152255221:ios:2bd3e89b4b9bddeaf91dbc',
-    messagingSenderId: '347152255221',
-    projectId: 'pichoy',
-    storageBucket: 'pichoy.appspot.com',
+    apiKey: 'AIzaSyCm9rC71GMdQTUWx17TtyIuuMkys_MyPyY',
+    appId: '1:840751026704:ios:c1ccbb65f65ba2a3293095',
+    messagingSenderId: '840751026704',
+    projectId: 'masjidtamanpuspa-c7698',
+    storageBucket: 'masjidtamanpuspa-c7698.appspot.com',
     iosBundleId: 'com.example.penulisanIlmiahApplication',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyD2vjHGD1-g3qKE7jRWtEviyK_MorYWbds',
-    appId: '1:347152255221:ios:2bd3e89b4b9bddeaf91dbc',
-    messagingSenderId: '347152255221',
-    projectId: 'pichoy',
-    storageBucket: 'pichoy.appspot.com',
-    iosBundleId: 'com.example.penulisanIlmiahApplication',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAFM5gKyeFaJf_CnnHrwrBwIEh6qkQ96qk',
-    appId: '1:347152255221:web:f1efdeb6dea9c86ff91dbc',
-    messagingSenderId: '347152255221',
-    projectId: 'pichoy',
-    authDomain: 'pichoy.firebaseapp.com',
-    storageBucket: 'pichoy.appspot.com',
   );
 }

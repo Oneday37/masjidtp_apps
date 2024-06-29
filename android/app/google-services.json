@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "347152255221",
-    "project_id": "pichoy",
-    "storage_bucket": "pichoy.appspot.com"
+    "project_number": "840751026704",
+    "project_id": "masjidtamanpuspa-c7698",
+    "storage_bucket": "masjidtamanpuspa-c7698.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:347152255221:android:63b6898b94690288f91dbc",
+        "mobilesdk_app_id": "1:840751026704:android:067ae58188e51c41293095",
         "android_client_info": {
           "package_name": "com.example.penulisan_ilmiah_application"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB3JEifYKCtX0n8gvAtu7dObA2qfvg9iSY"
+          "current_key": "AIzaSyCr54Cug3-H3iSn7UCk1w79iPrcPdr2BwI"
         }
       ],
       "services": {
