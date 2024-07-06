@@ -3,7 +3,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 
 FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-//Pembuatan Tabel Database NoSql (Firestore)
+//Pembuatan Collection / Tabel Database NoSql (Firestore)
 CollectionReference collectionRefKegiatan =
     firestore.collection("Kegiatan Masjid");
 CollectionReference collectionRefJadwal = firestore.collection("Jadwal Jum'at");
